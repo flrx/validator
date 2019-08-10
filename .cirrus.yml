@@ -8,4 +8,4 @@ test_task:
     folder: ~/.pub-cache
   test_script: flutter test --coverage
   codecov_script:
-    - bash <(curl -s https://codecov.io/bash) -t $CODE_COV_TOKEN%
+    - bash <(curl -s https://codecov.io/bash) -t $CODE_COV_TOKEN
