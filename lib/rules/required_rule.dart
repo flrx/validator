@@ -1,5 +1,6 @@
 import 'package:flrx_validator/rule.dart';
 
+/// A [Rule] subclass validating if the input is notEmpty.
 class RequiredRule extends Rule<String> {
   RequiredRule({String validationMessage}) : super(validationMessage);
 

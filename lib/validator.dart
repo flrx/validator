@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flrx_validator/rule.dart';
 import 'package:flrx_validator/src/string_utils.dart';
 
-/// A utility class primarily designed to be used by [FormField]'s validator.
+/// A class primarily designed to be used by [FormField]'s validator.
 ///
 /// The [Validator] class takes a List of [Rule]. The value supplied to the
 /// [Validator] is supplied to the [Rule]s in the order they were registered.
