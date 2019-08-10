@@ -157,4 +157,4 @@ Email is needed for creating an account
 
 All rules can take `transformMessage` function as well just like the `Validator`.
 
-You can refer [Validator.transformMessage](./Validator.html#transforming-the-message) for more Info.
+You can refer [Validator.transformMessage](./validator.html#transforming-the-message) for more Info.

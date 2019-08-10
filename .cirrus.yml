@@ -9,3 +9,7 @@ test_task:
   test_script: flutter test --coverage
   codecov_script:
     - bash <(curl -s https://codecov.io/bash) -t $CODE_COV_TOKEN
+
+publish_task:
+  only_if: $CIRRUS_BRANCH == 'master'
+  script: cd doc && deploy.sh

@@ -3,20 +3,20 @@ module.exports = {
   description: "Validator on Steroids",
   base: "/validator/",
   themeConfig: {
+    displayAllHeaders: true, // Default: false,
     sidebar: ["/", "/validator", "/rule"],
     nav: [
       {
         text: "Changelog",
         link: "https://github.com/flrx/validator/blob/master/CHANGELOG.md"
       },
-      { text: "Github", link: "https://github.com/flrx/validator" }
-    ]
+    ],
+    /* Repository Config */
+    repo: "flrx/validator",
+    repoLabel: "Github",
+    docsDir: "doc",
+    docsBranch: "master",
+    editLinks: true,
+    editLinkText: "Help us improve this page!"
   },
-  repo: "flrx/validator",
-  repoLabel: "Contribute!",
-  docsRepo: "vuejs/vuepress",
-  docsDir: "docs",
-  docsBranch: "master",
-  editLinks: true,
-  editLinkText: "Help us improve this page!"
 };
