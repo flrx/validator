@@ -9,6 +9,7 @@
 .history
 .svn/
 coverage/
+docs/node_modules/
 
 # IntelliJ related
 *.iml

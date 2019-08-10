@@ -1,12 +1,13 @@
 module.exports = {
   title: "Flrx Validator",
   description: "Validator on Steroids",
+  base: "/validator/",
   themeConfig: {
     sidebar: ["/", "/validator", "/rule"],
     nav: [
       {
         text: "Changelog",
-        link: "https://github.com/flrx/validator/CHANGELOG.md"
+        link: "https://github.com/flrx/validator/blob/master/CHANGELOG.md"
       },
       { text: "Github", link: "https://github.com/flrx/validator" }
     ]

@@ -38,7 +38,7 @@ TextFormField(
 
 ## Contributing
 
-Please see CONTRIBUTING.md.
+Please see [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
 
