@@ -8,9 +8,11 @@ environment:
   sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
+  meta: 1.1.6
   flutter:
     sdk: flutter
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  test_api: ^0.2.5
