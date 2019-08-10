@@ -1,3 +1,5 @@
-## [0.0.1] - TODO: Add release date.
+## [v0.0.1]
 
-* TODO: Describe initial release.
+Initial Release
+
+[v0.0.1]: https://github.com/flrx/validator/tag/v0.0.1

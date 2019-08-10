@@ -1,5 +1,6 @@
 import 'package:flrx_validator/rule.dart';
 
+/// A [Rule] subclass validating if the length of input is less than [maxLength].
 class MaxLengthRule extends Rule<String> {
   final int maxLength;
 

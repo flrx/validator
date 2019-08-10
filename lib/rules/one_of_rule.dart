@@ -1,5 +1,6 @@
 import 'package:flrx_validator/rule.dart';
 
+/// A [Rule] subclass validating if the input is one of the element in the [acceptedList].
 class OneOfRule<T> extends Rule<T> {
   final List<T> acceptedList;
 
