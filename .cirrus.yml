@@ -2,6 +2,10 @@ container:
   image: cirrusci/flutter:latest
 
 test_task:
+  env:
+    CODECOV_TOKEN: ENCRYPTED[0b39ebc2857b16573838848a4359338b0b198c8342d9f846182ef1bd81e810c43809b7af330ab8a49f7bd708ecb82663]
   pub_cache:
     folder: ~/.pub-cache
   test_script: flutter test --coverage
+  codecov_script:
+    - bash <(curl -s https://codecov.io/bash) -t $CODE_COV_TOKEN%
