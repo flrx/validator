@@ -10,9 +10,51 @@ The `Validator` takes a List of `Rule`. The value supplied to the
 `Validator` is supplied to the `Rule`s in the order they were registered.
 The error message of the first `Rule` that fails is returned back. If all the `Rule`s pass, then null is returned to the `FormField`.
 
+## Running the Validator
+
+There are two ways to run the validator.
+
+### Via `build()`
+
+The `Validator`'s `build()` method is useful if you want to add validation to a `FormField` Widget.
+
+### Via `validate()`
+
+The `Validator`'s `validate()` method is useful if you want to validate a value in any other case.
+For example, Flutter does not have any Cupertino FormField Widgets. For such cases you'll want to use the validator as following.
+
+```dart
+
+  @override
+  Widget build(BuildContext context) {
+  
+    ...  
+        CupertinoTextField(controller: _textEditingController),
+        Text(emailValidationMessage),
+    ...
+  
+  }
+      
+  void onFormSubmitPressed() {
+    String value = _textEditingController.text;
+    setState(() {
+      emailValidationMessage = Validator<String>()
+                    .add(RequiredRule())
+                    .add(EmailRule())
+                    .validate(value) ?? '';
+      });
+  }
+  
+  ...
+
+}
+```
+
+You can see the full example [here](https://github.com/flrx/validator/blob/master/example/lib/cupertino_form.dart).
+
 ## Adding Rules
 
-The `Validator` takes `Rule`s againt which the value is validated. You can add `Rule`s to the validator in the following ways
+The `Validator` takes `Rule`s against which the value is validated. You can add `Rule`s to the validator in the following ways
 
 ### Via `add()`
 
