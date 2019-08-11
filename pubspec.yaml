@@ -1,14 +1,14 @@
 name: flrx_validator
 description: Validator on steroids
-version: 0.0.1
-author: Flrx
-homepage: https://gihub.com/flrx/validator
+version: 0.1.0
+author: Flrx <flrx.dev@gmail.com>
+homepage: https://flrx.github.io/validator/
 
 environment:
   sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
-  meta: 1.1.6
+  meta: ^1.1.6
   flutter:
     sdk: flutter
 

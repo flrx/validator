@@ -1,8 +1,3 @@
----
-prev: "/"
-next: "./rule"
----
-
 # Validator
 
 [[toc]]

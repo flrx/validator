@@ -1,8 +1,3 @@
----
-prev: "/validator"
-next: false
----
-
 # Rule
 
 [[toc]]
@@ -133,7 +128,7 @@ The built-in rules are not an exhaustive list of rules that can be possible. Hen
 
 The custom validation rule can be written this way:
 
-<<< @/custom_rule.dart
+<<< @/code/custom_rule.dart
 
 ## Custom Validation Message
 
@@ -157,4 +152,4 @@ Email is needed for creating an account
 
 All rules can take `transformMessage` function as well just like the `Validator`.
 
-You can refer [Validator.transformMessage](./validator.html#transforming-the-message) for more Info.
+You can refer [**`Validator.transformMessage()`**](./validator.html#transforming-the-message) for more Info.
