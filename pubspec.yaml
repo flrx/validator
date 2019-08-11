@@ -1,7 +1,7 @@
 name: flrx_validator
 description: Validator on steroids
 version: 0.1.0
-author: Flrx <flrx.dev@gmail.com>
+author: Flrx Team <flrx.dev@gmail.com>
 homepage: https://flrx.github.io/validator/
 
 environment:
