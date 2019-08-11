@@ -18,10 +18,15 @@ There are two ways to run the validator.
 
 The `Validator`'s `build()` method is useful if you want to add validation to a `FormField` Widget.
 
+```dart
+TextFormField(validator: Validator<String>().build())
+```
+
+
 ### Via `validate()`
 
-The `Validator`'s `validate()` method is useful if you want to validate a value in any other case.
-For example, Flutter does not have any Cupertino FormField Widgets. For such cases you'll want to use the validator as following.
+The `Validator`'s `validate()` method is useful if you want to validate a value outside a `FormField`.
+For example, Flutter does not have any Cupertino FormField Widgets. For such cases you can perform validation like this:
 
 ```dart
 
@@ -38,10 +43,7 @@ For example, Flutter does not have any Cupertino FormField Widgets. For such cas
   void onFormSubmitPressed() {
     String value = _textEditingController.text;
     setState(() {
-      emailValidationMessage = Validator<String>()
-                    .add(RequiredRule())
-                    .add(EmailRule())
-                    .validate(value) ?? '';
+      emailValidationMessage = Validator<String>().validate(value) ?? '';
       });
   }
   
@@ -51,6 +53,11 @@ For example, Flutter does not have any Cupertino FormField Widgets. For such cas
 ```
 
 You can see the full example [here](https://github.com/flrx/validator/blob/master/example/lib/cupertino_form.dart).
+
+::: warning
+Although for simple forms this may seem like a good idea, this could quickly go out of hand.
+You might want to use a Custom [FormField](https://api.flutter.dev/flutter/widgets/FormField-class.html) Widget instead.
+:::
 
 ## Adding Rules
 
@@ -102,6 +109,7 @@ TextFormField(
     validator: Validator<String>(entityName: 'Password')
         .add(MinLengthRule(6))
         .build()
+)
 ```
 
 will produce a validation message like:
@@ -114,7 +122,7 @@ Password should be more than 6 characters
 
 `Validator` also accepts a function which can be used to transform the message that is returned after the validation of the input.
 
-`transformMessage` function can be used for cases like localization amongst others.
+`transformMessage` function can be used for cases like localization among others.
 
 By default, `transformMessage` replaces the `keys` in the `message` by the corresponding `values` which are defined in the `params` map.
 

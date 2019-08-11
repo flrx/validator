@@ -2,7 +2,7 @@
 
 ## What is Flrx validator?
 
-It is a fluent API based form field validator for flutter, that promotes code reuse. It is highly extensible, modular and testable.
+It is a fluent API based FormField validator for flutter, that promotes code reuse. It is highly extensible, modular and testable.
 
 It is as simple as doing the following:
 
