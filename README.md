@@ -13,7 +13,7 @@ Add the following to your `pubspec.yaml` file
 
 ```yaml
 dependencies:
-  flrx_validator: ^0.0.1
+  flrx_validator: ^0.1.0
 ```
 
 ## Usage
