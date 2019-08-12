@@ -18,6 +18,12 @@ dependencies:
 
 ## Usage
 
+### Documentation
+
+For more info on Flrx Validator and Rules you can see the [**documentation**](https://flrx.github.io/validator). 
+
+### Example
+
 ```dart
 import 'package:flrx_validator/validator.dart';
 import 'package:flrx_validator/rules/email_rule.dart';
