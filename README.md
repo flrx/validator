@@ -2,8 +2,10 @@
 
 Validator on Steroids
 
+![Pub](https://img.shields.io/pub/v/flrx_validator)
 [![Build Status](https://api.cirrus-ci.com/github/flrx/validator.svg)](https://cirrus-ci.com/github/flrx/validator)
 [![codecov](https://codecov.io/gh/flrx/validator/branch/master/graph/badge.svg)](https://codecov.io/gh/flrx/validator)
+![GitHub](https://img.shields.io/github/license/flrx/validator)
 
 ## Installation
 
@@ -11,10 +13,16 @@ Add the following to your `pubspec.yaml` file
 
 ```yaml
 dependencies:
-  flrx_validator: ^0.0.1
+  flrx_validator: ^0.1.0
 ```
 
 ## Usage
+
+### Documentation
+
+For more info on Flrx Validator and Rules you can see the [**documentation**](https://flrx.github.io/validator). 
+
+### Example
 
 ```dart
 import 'package:flrx_validator/validator.dart';

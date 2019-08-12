@@ -8,7 +8,6 @@
 .buildlog/
 .history
 .svn/
-coverage/
 
 # IntelliJ related
 *.iml
@@ -28,8 +27,7 @@ coverage/
 .packages
 .pub-cache/
 .pub/
-build/
-pubspec.lock
+/build/
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -72,7 +70,3 @@ pubspec.lock
 !**/ios/**/default.pbxuser
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
-
-# Vuepress related
-doc/.vuepress/dist/
-doc/node_modules/
