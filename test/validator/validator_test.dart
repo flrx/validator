@@ -1,4 +1,4 @@
-import 'package:test_api/test_api.dart';
+import 'package:test/test.dart';
 import 'package:flrx_validator/rules/any_rule.dart';
 import 'package:flrx_validator/rules/one_of_rule.dart';
 import 'package:flrx_validator/validator.dart';

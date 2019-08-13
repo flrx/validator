@@ -5,7 +5,7 @@ Validator on Steroids
 ![Pub](https://img.shields.io/pub/v/flrx_validator)
 [![Build Status](https://api.cirrus-ci.com/github/flrx/validator.svg)](https://cirrus-ci.com/github/flrx/validator)
 [![codecov](https://codecov.io/gh/flrx/validator/branch/master/graph/badge.svg)](https://codecov.io/gh/flrx/validator)
-![GitHub](https://img.shields.io/github/license/flrx/validator)
+[![GitHub](https://img.shields.io/github/license/flrx/validator)](https://github.com/flrx/validator/blob/master/LICENSE)
 
 ## Installation
 
@@ -13,7 +13,7 @@ Add the following to your `pubspec.yaml` file
 
 ```yaml
 dependencies:
-  flrx_validator: ^0.1.0
+  flrx_validator: ^0.2.0
 ```
 
 ## Usage
@@ -46,8 +46,8 @@ TextFormField(
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md).
+Please see [**CONTRIBUTING**](https://github.com/flrx/validator/blob/develop/CONTRIBUTING.md).
 
 ## License
 
-Please see [LICENSE](LICENSE).
+Please see [**LICENSE**](https://github.com/flrx/validator/blob/develop/LICENSE).

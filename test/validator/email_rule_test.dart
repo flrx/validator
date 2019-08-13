@@ -1,4 +1,4 @@
-import 'package:test_api/test_api.dart';
+import 'package:test/test.dart';
 import 'package:flrx_validator/rules/email_rule.dart';
 import 'package:flrx_validator/src/string_utils.dart';
 
