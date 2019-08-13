@@ -1,13 +1,12 @@
-import 'package:flutter/widgets.dart';
 import 'package:flrx_validator/rule.dart';
 import 'package:flrx_validator/src/string_utils.dart';
 
-/// A class primarily designed to be used by [FormField]'s validator.
+/// A class primarily designed to retrieve validation messages based on [Rule]s.
 ///
 /// The [Validator] class takes a List of [Rule]. The value supplied to the
 /// [Validator] is supplied to the [Rule]s in the order they were registered.
 /// The error message of the first [Rule] that fails is returned back.
-/// If all the [Rule]s pass, then null is returned to the [FormField].
+/// If all the [Rule]s pass, then null is returned.
 class Validator<T> {
   Validator(
       {this.entityName = "Entity",
@@ -40,8 +39,8 @@ class Validator<T> {
     return this;
   }
 
-  /// Returns a [FormFieldValidator] to be used with a [FormField].
-  FormFieldValidator<T> build() => validate;
+  /// Returns a Function that can be called to validate. Added as a convenience for Flutter
+  String Function(T value) build() => validate;
 
   /// Validates and returns an error message(if any).
   String validate(T value) {

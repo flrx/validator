@@ -1,6 +1,7 @@
 name: flrx_validator
-description: Validator on steroids
-version: 0.1.0
+description: >
+  A powerful, extensible validator package to get validation messages based on a list of rules.
+version: 0.2.0
 author: Flrx Team <flrx.dev@gmail.com>
 homepage: https://flrx.github.io/validator/
 
@@ -9,10 +10,7 @@ environment:
 
 dependencies:
   meta: ^1.1.6
-  flutter:
-    sdk: flutter
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  test_api: ^0.2.5
+  test: ^1.6.5
+  test_coverage: ^0.3.0+1

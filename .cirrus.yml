@@ -6,10 +6,26 @@ test_task:
     CODECOV_TOKEN: ENCRYPTED[0b39ebc2857b16573838848a4359338b0b198c8342d9f846182ef1bd81e810c43809b7af330ab8a49f7bd708ecb82663]
   pub_cache:
     folder: ~/.pub-cache
-  test_script: flutter test --coverage
+  test_script:
+    - pub get
+    - pub run test_coverage
   codecov_script:
     - bash <(curl -s https://codecov.io/bash) -t $CODE_COV_TOKEN
 
 publish_task:
   only_if: $CIRRUS_BRANCH == 'master'
-  script: cd doc && deploy.sh
+  depends_on:
+    - test
+  container:
+    image: node:latest
+  env:
+    DEPLOYMENT_TOKEN: ENCRYPTED[892b4e38b52b3ffdf1ebf94761754ae05d32e23bfaf188baba0c651f8152f34dfc310f597a359086f55374387d8b72e8]
+  node_modules_cache:
+    folder: doc/node_modules
+    populate_script:
+      - cd doc
+      - yarn install
+  deploy_docs_script:
+    - cd doc
+    - yarn docs:build
+    - ./deploy.sh

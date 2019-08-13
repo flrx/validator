@@ -4,7 +4,8 @@
 
 ## Introduction
 
-Validator is primarily designed to be used by Flutter's `FormField`'s validator.
+Flrx Validator allows you to take a specific value and validate against a set of rules. 
+It is primarily designed to be used by Flutter's `FormField`'s validator, however you can use it with any Dart 2 Project.
 
 The `Validator` takes a List of `Rule`. The value supplied to the
 `Validator` is supplied to the `Rule`s in the order they were registered.
