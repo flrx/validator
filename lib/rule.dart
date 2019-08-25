@@ -51,7 +51,7 @@ abstract class Rule<T> {
   /// This function is takes the default entity and value along with
   /// the key, value pairs provided by the [getRuleSpecificParams()] function.
   Map<String, String> _getResultantMap(String entityName, T value) {
-    return {
+    return <String, String>{
       'entity': entityName,
       'value': value.toString(),
       ...getRuleSpecificParams()
@@ -59,5 +59,5 @@ abstract class Rule<T> {
   }
 
   /// Returns a Map of values that are specific to the child [Rule].
-  Map<String, String> getRuleSpecificParams() => {};
+  Map<String, String> getRuleSpecificParams() => <String, String>{};
 }

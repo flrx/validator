@@ -25,16 +25,16 @@ class Validator<T> {
   String Function(String, Map<String, String>) transformMessage;
 
   /// List of all registered rules.
-  List<Rule<T>> rulesList = [];
+  List<Rule<T>> rulesList = <Rule<T>>[];
 
   /// Registers a single [Rule] with the [Validator].
-  Validator add(Rule rule) {
+  Validator<T> add(Rule<T> rule) {
     rulesList.add(rule);
     return this;
   }
 
   /// Registers a List of [Rule] with the [Validator].
-  Validator addAll(List<Rule<T>> rule) {
+  Validator<T> addAll(List<Rule<T>> rule) {
     rulesList.addAll(rule);
     return this;
   }

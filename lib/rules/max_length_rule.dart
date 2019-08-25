@@ -18,6 +18,6 @@ class MaxLengthRule extends Rule<String> {
 
   @override
   Map<String, String> getRuleSpecificParams() {
-    return {"maxLength": maxLength.toString()};
+    return <String, String>{"maxLength": maxLength.toString()};
   }
 }

@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: _title,
       home: SelectTypeOfForm(),
-      routes: {
-        '/material-form': (context) => MaterialForm(),
-        '/cupertino-form': (context) => CupertinoForm()
+      routes: <String, Widget Function(BuildContext)>{
+        '/material-form': (BuildContext context) => MaterialForm(),
+        '/cupertino-form': (BuildContext context) => CupertinoForm()
       },
     );
   }

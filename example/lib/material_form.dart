@@ -11,7 +11,7 @@ class MaterialForm extends StatefulWidget {
 }
 
 class _MaterialFormState extends State<MaterialForm> {
-  final _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _MaterialFormState extends State<MaterialForm> {
             children: <Widget>[
               TextFormField(
                 validator:
-                    Validator().add(RequiredRule()).add(EmailRule()).build(),
+                    Validator<String>().add(RequiredRule()).add(EmailRule()).build(),
                 decoration: InputDecoration(hintText: 'Email'),
               ),
               buildDropdown(),
@@ -46,9 +46,9 @@ class _MaterialFormState extends State<MaterialForm> {
 
   Widget buildDropdown() {
     return DropdownButtonFormField<String>(
-      validator: Validator().add(RequiredRule()).build(),
+      validator: Validator<String>().add(RequiredRule()).build(),
       value: "",
-      items: <DropdownMenuItem<String>>[
+      items: const <DropdownMenuItem<String>>[
         DropdownMenuItem<String>(
           child: Text('Please select an Item'),
           value: "",

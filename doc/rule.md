@@ -90,7 +90,7 @@ Validator<String>()
 Value is not a valid email address
 ```
 
-### OneOfRule
+### OneOfRule (Deprecated, See [InRule](#inrule)) 
 
 This `Rule` checks whether the input provided is present in the the values provided to the `OneOfRule`.
 
@@ -104,6 +104,38 @@ Validator<String>()
 
 ```
 Entity is not in the list of accepted values.
+```
+
+### InRule
+
+This `Rule` checks if the value provided is in the list of accepted values.
+
+```dart
+Validator<String>()
+    .add(InRule(['value1', 'value2', 'value3']))
+    .build()
+```
+
+**Output**
+
+```
+Entity is not in the list of accepted values.
+```
+
+### NotInRule
+
+This `Rule` checks if the value provided is not in the list of rejected values.
+
+```dart
+Validator<String>()
+    .add(NotInRule(['value1', 'value2', 'value3']))
+    .build()
+```
+
+**Output**
+
+```
+Entity is in list of rejected values.
 ```
 
 ### AnyRule

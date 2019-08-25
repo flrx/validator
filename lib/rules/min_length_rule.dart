@@ -17,6 +17,6 @@ class MinLengthRule extends Rule<String> {
 
   @override
   Map<String, String> getRuleSpecificParams() {
-    return {"minLength": minLength.toString()};
+    return <String, String>{"minLength": minLength.toString()};
   }
 }

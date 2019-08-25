@@ -1,3 +1,4 @@
+import 'package:flrx_validator/rule.dart';
 import 'package:test/test.dart';
 import 'package:flrx_validator/rules/any_rule.dart';
 import 'package:flrx_validator/rules/one_of_rule.dart';
@@ -7,10 +8,10 @@ import '../mocks/mock_validator_rule.dart';
 
 void main() {
   MockRule mockRule;
-  Validator validator;
+  Validator<String> validator;
 
   setUp(() {
-    validator = Validator();
+    validator = Validator<String>();
     mockRule = MockRule();
   });
 
@@ -18,9 +19,9 @@ void main() {
     test('test_validation_has_all_added_rules', () {
       validator.add(mockRule);
       expect(validator.rulesList.length, 1);
-      validator.addAll([
-        AnyRule([]),
-        OneOfRule([]),
+      validator.addAll(<Rule<String>>[
+        AnyRule<String>(<Rule<String>>[]),
+        OneOfRule<String>(<String>[]),
       ]);
       expect(validator.rulesList.length, 3);
     });
@@ -43,16 +44,16 @@ void main() {
         (String message, Map<String, String> _) => message.toUpperCase();
 
     test('test_validator_with_message_transformer', () {
-      Validator customValidator =
-          Validator(transformMessage: upperCaseTransformer);
+      Validator<String> customValidator =
+          Validator<String>(transformMessage: upperCaseTransformer);
       Function validationFunction = customValidator.add(mockRule).build();
       String validationMessage = validationFunction("value");
       expect(validationMessage, "VALUE");
     });
 
     test('test_rule_uses_custom_transformer', () {
-      Validator customValidator =
-          Validator(transformMessage: upperCaseTransformer);
+      Validator<String> customValidator =
+          Validator<String>(transformMessage: upperCaseTransformer);
       mockRule.transformMessage =
           (String message, Map<String, String> params) => message.toLowerCase();
       Function validationFunction = customValidator.add(mockRule).build();
@@ -64,7 +65,7 @@ void main() {
       String entityName = 'MockEntity';
       String valueToValidate = 'Value';
       String mockParamValue = 'mockParamValue';
-      Validator customValidator = Validator(
+      Validator<String> customValidator = Validator<String>(
           entityName: entityName,
           transformMessage: (String message, Map<String, String> params) {
             expect(params['entity'], entityName);

@@ -1,3 +1,4 @@
+import 'package:flrx_validator/rule.dart';
 import 'package:test/test.dart';
 import 'package:flrx_validator/rules/any_rule.dart';
 import 'package:flrx_validator/src/string_utils.dart';
@@ -9,9 +10,9 @@ void main() {
   String validForMockRule;
   String invalidForMockRule = "invalid";
 
-  AnyRule rule = AnyRule([
+  AnyRule<String> rule = AnyRule<String>(<Rule<String>>[
     MockRule(),
-    MockAlwaysFailRule(),
+    MockAlwaysFailRule<String>(),
   ]);
 
   rule.transformMessage = StringUtils.replaceWithValues;

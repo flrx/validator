@@ -7,7 +7,7 @@ class RegexRule extends Rule<String> {
   final String regex;
 
   @override
-  String onValidate(String entityName, value) {
+  String onValidate(String entityName, String value) {
     RegExp regExp = RegExp(regex);
     if (!regExp.hasMatch(value)) {
       return ":value is not a valid pattern";

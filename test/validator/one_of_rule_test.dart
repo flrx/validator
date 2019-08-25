@@ -7,7 +7,7 @@ void main() {
   String validString = "test1";
   String invalidString = "fail";
 
-  OneOfRule<String> rule = OneOfRule<String>(['test1', 'test2']);
+  OneOfRule<String> rule = OneOfRule<String>(<String>['test1', 'test2']);
   rule.transformMessage = StringUtils.replaceWithValues;
 
   test("valid_one_of_test", () {

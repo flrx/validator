@@ -4,8 +4,9 @@ class StringUtils {
       if (match.groupCount > 0) {
         String key = match.group(0).substring(1);
         String value = valueMap[key];
-        if (value == null)
+        if (value == null) {
           throw ArgumentError("Value cannot be null. $key is passed as null");
+        }
         return value;
       }
       return '';

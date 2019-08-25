@@ -8,10 +8,10 @@ class MockRule extends Rule<String> {
 
   @override
   Map<String, String> getRuleSpecificParams() =>
-      {'mockParam': 'mockParamValue'};
+      <String, String>{'mockParam': 'mockParamValue'};
 }
 
-class MockAlwaysFailRule extends Rule<dynamic> {
+class MockAlwaysFailRule<T> extends Rule<T> {
   MockAlwaysFailRule() : super(null);
 
   @override

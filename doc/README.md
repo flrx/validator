@@ -27,5 +27,5 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flrx_validator: ^0.2.0
+  flrx_validator: ^0.3.0
 ```
