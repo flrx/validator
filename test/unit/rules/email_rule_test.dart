@@ -1,6 +1,6 @@
+import 'package:flrx_validator/src/utils/string_utils.dart';
+import 'package:flrx_validator/validator.dart';
 import 'package:test/test.dart';
-import 'package:flrx_validator/rules/email_rule.dart';
-import 'package:flrx_validator/src/string_utils.dart';
 
 // Test Cases are from Microsoft,
 // https://blogs.msdn.microsoft.com/testing123/2009/02/06/email-address-test-cases/

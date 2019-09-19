@@ -142,3 +142,27 @@ TextFormField(
 ::: tip Remember
 The **`Rule`** also accepts the **`transformMessage`** which takes precedence over the **`Validator`**'s **`transformMessage`**.
 :::
+
+## The `validate` utility
+
+Flrx Validator now comes with a simple utility function for Flutter.
+```dart
+TextFormField(
+  validator: validate([RequiredRule(), MinLengthRule(6)]),
+)
+```
+
+### Customizing the `validate` utility
+In case you are extending the Validator class, you might want the validate utility to return an instance of your validator object instead.
+The validate method depends on a builder method from Validator which you can set as follows.
+
+```dart
+Validator<T> myCustomValidatorBuilder<T>({
+  String entityName,
+  String Function(String, Map<String, String>) transformMessage,
+}) {
+  return MyCustomValidator<T>(entityName, transformMessage);
+}
+
+Validator.builder = myCustomValidatorBuilder;
+```  

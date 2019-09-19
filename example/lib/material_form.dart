@@ -1,5 +1,3 @@
-import 'package:flrx_validator/rules/email_rule.dart';
-import 'package:flrx_validator/rules/required_rule.dart';
 import 'package:flrx_validator/validator.dart';
 import 'package:flutter/material.dart';
 
@@ -25,9 +23,19 @@ class _MaterialFormState extends State<MaterialForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               TextFormField(
-                validator:
-                    Validator<String>().add(RequiredRule()).add(EmailRule()).build(),
+                validator: Validator<String>()
+                    .add(RequiredRule())
+                    .add(EmailRule())
+                    .build(),
                 decoration: InputDecoration(hintText: 'Email'),
+              ),
+              TextFormField(
+                obscureText: true,
+                validator: validate(<Rule<String>>[
+                  RequiredRule(),
+                  MinLengthRule(6),
+                ]),
+                decoration: InputDecoration(hintText: 'Password'),
               ),
               buildDropdown(),
               Padding(
@@ -45,8 +53,9 @@ class _MaterialFormState extends State<MaterialForm> {
   }
 
   Widget buildDropdown() {
+    //Using validator Utility
     return DropdownButtonFormField<String>(
-      validator: Validator<String>().add(RequiredRule()).build(),
+      validator: validate(<Rule<String>>[RequiredRule()]),
       value: "",
       items: const <DropdownMenuItem<String>>[
         DropdownMenuItem<String>(

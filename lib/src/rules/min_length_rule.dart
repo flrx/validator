@@ -1,4 +1,4 @@
-import 'package:flrx_validator/rule.dart';
+import 'package:flrx_validator/src/rules/rule.dart';
 
 /// A [Rule] subclass validating if the input length is more than [minLength].
 class MinLengthRule extends Rule<String> {

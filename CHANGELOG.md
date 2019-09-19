@@ -1,3 +1,14 @@
+## [v0.4.0]
+
+### Added
+- `validate()` utility method
+
+### Changed
+- Moved all files to src folder. Use `import 'package:flrx_validator/validator.dart';` *BREAKING CHANGE*
+
+### Removed
+- OneOfRule (deprecated in v0.3.0)
+
 ## [v0.3.0]
 
 ### Added
@@ -5,7 +16,6 @@
 
 ### Deprecated
 - OneOfRule in favour of InRule
-
 
 ### Changed
 - Minor Code Cleanup.
@@ -19,5 +29,7 @@
 
 Initial Release
 
+[v0.4.0]: https://github.com/flrx/validator/compare/v0.4.0...v0.3.0
+[v0.3.0]: https://github.com/flrx/validator/compare/v0.3.0...v0.2.0
 [v0.2.0]: https://github.com/flrx/validator/compare/v0.2.0...v0.1.0
 [v0.1.0]: https://github.com/flrx/validator/tag/v0.1.0

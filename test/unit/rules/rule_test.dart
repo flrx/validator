@@ -1,7 +1,7 @@
+import 'package:flrx_validator/src/utils/string_utils.dart';
 import 'package:test/test.dart';
-import 'package:flrx_validator/src/string_utils.dart';
 
-import '../mocks/mock_validator_rule.dart';
+import '../../mocks/mock_validator_rule.dart';
 
 void main() {
   test('rule_uses_custom_validation_message', () {
