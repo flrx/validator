@@ -5,7 +5,8 @@ class EmailRule extends RegexRule {
   static const String emailRegex =
       r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 
-  static const String _emailValidationMessage = ":value is not a valid email address";
+  static const String _emailValidationMessage =
+      ":value is not a valid email address";
 
   EmailRule({String validationMessage})
       : super(emailRegex,
