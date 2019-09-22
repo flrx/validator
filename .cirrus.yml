@@ -1,6 +1,10 @@
 container:
   image: cirrusci/flutter:latest
 
+style_task:
+  test_style_script:
+    - dartfmt --set-exit-if-changed lib
+
 test_task:
   env:
     CODECOV_TOKEN: ENCRYPTED[0b39ebc2857b16573838848a4359338b0b198c8342d9f846182ef1bd81e810c43809b7af330ab8a49f7bd708ecb82663]
