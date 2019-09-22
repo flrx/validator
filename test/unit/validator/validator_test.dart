@@ -1,10 +1,7 @@
-import 'package:flrx_validator/rule.dart';
-import 'package:test/test.dart';
-import 'package:flrx_validator/rules/any_rule.dart';
-import 'package:flrx_validator/rules/one_of_rule.dart';
 import 'package:flrx_validator/validator.dart';
+import 'package:test/test.dart';
 
-import '../mocks/mock_validator_rule.dart';
+import '../../mocks/mock_validator_rule.dart';
 
 void main() {
   MockRule mockRule;
@@ -21,7 +18,7 @@ void main() {
       expect(validator.rulesList.length, 1);
       validator.addAll(<Rule<String>>[
         AnyRule<String>(<Rule<String>>[]),
-        OneOfRule<String>(<String>[]),
+        InRule<String>(<String>[]),
       ]);
       expect(validator.rulesList.length, 3);
     });

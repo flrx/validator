@@ -1,4 +1,4 @@
-import 'package:flrx_validator/rules/regex_rule.dart';
+import 'package:flrx_validator/src/rules/regex_rule.dart';
 
 /// A [Rule] subclass validating if the given input is a valid email.
 class EmailRule extends RegexRule {

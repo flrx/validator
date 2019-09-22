@@ -1,4 +1,4 @@
-import 'package:flrx_validator/rule.dart';
+import 'package:flrx_validator/src/rules/rule.dart';
 
 /// A [Rule] subclass validating the input matches a [regex].
 class RegexRule extends Rule<String> {

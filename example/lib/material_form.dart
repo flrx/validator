@@ -1,5 +1,3 @@
-import 'package:flrx_validator/rules/email_rule.dart';
-import 'package:flrx_validator/rules/required_rule.dart';
 import 'package:flrx_validator/validator.dart';
 import 'package:flutter/material.dart';
 
@@ -25,8 +23,10 @@ class _MaterialFormState extends State<MaterialForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               TextFormField(
-                validator:
-                    Validator<String>().add(RequiredRule()).add(EmailRule()).build(),
+                validator: Validator<String>()
+                    .add(RequiredRule())
+                    .add(EmailRule())
+                    .build(),
                 decoration: InputDecoration(hintText: 'Email'),
               ),
               buildDropdown(),
