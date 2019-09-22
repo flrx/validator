@@ -1,4 +1,4 @@
-import 'package:flrx_validator/rule.dart';
+import 'package:flrx_validator/src/rules/rule.dart';
 
 /// A [Rule] subclass which validates if any of the list of [Rule]
 /// passed to it are passing.

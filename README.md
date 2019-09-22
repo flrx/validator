@@ -1,11 +1,13 @@
 # Flrx Validator
 
-It is a fluent API based FormField validator for flutter, that promotes code reuse. It is highly extensible, modular and testable.
-
 ![Pub](https://img.shields.io/pub/v/flrx_validator)
 [![Build Status](https://api.cirrus-ci.com/github/flrx/validator.svg)](https://cirrus-ci.com/github/flrx/validator)
 [![codecov](https://codecov.io/gh/flrx/validator/branch/master/graph/badge.svg)](https://codecov.io/gh/flrx/validator)
 [![GitHub](https://img.shields.io/github/license/flrx/validator)](https://github.com/flrx/validator/blob/master/LICENSE)
+
+A fluent API based validator designed around flutter that promotes code reuse. It is highly extensible, modular and testable.
+
+![Validator](doc/flrx_validator.png "Validator")
 
 ## Installation
 

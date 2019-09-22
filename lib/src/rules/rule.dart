@@ -1,3 +1,4 @@
+import 'package:flrx_validator/src/validator.dart';
 import 'package:meta/meta.dart';
 
 /// An abstract class designed to use with [Validator].
@@ -21,7 +22,7 @@ abstract class Rule<T> {
   ///
   /// If passed to [Rule], it overrides the default [Validator.transformMessage]
   /// function.
-  String Function(String, Map<String, String>) transformMessage;
+  MessageTransformer transformMessage;
 
   /// Returns validation message if validation fails.
   ///
