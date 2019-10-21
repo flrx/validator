@@ -29,6 +29,7 @@ For more info on Flrx Validator and Rules you can see the [**documentation**](ht
 |       Rule      |   Arguments  | Description |
 |-----------------|--------------|-------------|
 |    `AnyRule`    |   ruleList   | Takes A list of rules, Passes when any of the rule passes, Useful for Validation of Username/Email Fields or similar fields|
+|    `AllRule`    |   ruleList   | Takes A list of rules, Passes when all of the rule passes and returns validation message for all rules, Useful for Validation of Password Fields or similar fields|
 |   `EmailRule`   |      -       | Passes when String is an E-Mail |
 |     `InRule`    | acceptedList | Passes when the value is included in the given list of values. |
 | `MaxLengthRule` |   maxLength  | Passes when the String length is less than the given length |

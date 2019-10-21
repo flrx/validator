@@ -10,7 +10,7 @@ void main() {
         MinLengthRule(6),
         RegexRule(
           r'(?=.*[a-z])',
-          validationMessage: "It should contain one lowercase character",
+          validationMessage: ":entity should contain one lowercase character",
         ),
       ]
           .map((Rule<String> rule) =>
@@ -22,7 +22,7 @@ void main() {
     test('Runs all rules', () {
       String message = rule.validate("Password", "123");
       expect(message,
-          "Password should be more than 6 characters\nIt should contain one lowercase character");
+          "Password should be more than 6 characters\nPassword should contain one lowercase character");
     });
 
     test('Validated message exists only for rule that fails', () {

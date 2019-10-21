@@ -6,6 +6,7 @@ class AllRule<T> extends Rule<T> {
   /// The list of [Rule] to be validated for.
   final List<Rule<T>> _ruleList;
 
+  /// A function which concatenates all the Validation Messages.
   final String Function(List<String>) concatenator;
 
   /// The default constructor

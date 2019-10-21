@@ -154,6 +154,32 @@ Validator<String>()
 Value is not a valid email address.
 ```
 
+### AllRule
+
+This `Rule` checks whether the input provided passes all of the `Rule`s provided to `AllRule`.
+This rule also returns the validation message for all `Rule`s passed to it.
+
+```dart
+Validator<String>()
+    .add(AllRule([
+      MinLengthRule(6),
+      RegexRule(
+        r'(?=.*[a-z])',
+        validationMessage: ":entity should contain one lowercase character",
+      ),
+    ]))
+    .build()
+```
+
+**Output**
+
+```
+Password should be more than 6 characters
+Password should contain one lowercase character
+```
+
+`AllRule` also accepts a `concatenator` which concatenates all the validation messages.
+
 ## Custom Validation Rule
 
 The built-in rules are not an exhaustive list of rules that can be possible. Hence the user can always extend the `Rule` class and create custom validation `Rule`s according to the requirements.
