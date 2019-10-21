@@ -43,7 +43,8 @@ class _MaterialFormState extends State<MaterialForm> {
                       ],
                     ))
                     .build(),
-                decoration: InputDecoration(hintText: 'Email'),
+                decoration: InputDecoration(hintText: 'Password'),
+                obscureText: true,
               ),
               buildDropdown(),
               Padding(
