@@ -22,7 +22,10 @@ class AllRule<T> extends Rule<T> {
   @override
   String onValidate(String entityName, T value) {
     List<String> allRulesValidationMessage = _ruleList
-        .map((Rule<T> rule) => rule.validate(entityName, value))
+        .map((Rule<T> rule) {
+          rule.transformMessage = transformMessage;
+          return rule.validate(entityName, value);
+        })
         .where((String validationMessage) => validationMessage != null)
         .toList();
 

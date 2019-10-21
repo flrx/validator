@@ -1,4 +1,4 @@
-export 'package:flrx_validator/src/rules/any_rule.dart';
+export 'package:flrx_validator/src/rules/all_rule.dart';
 export 'package:flrx_validator/src/rules/any_rule.dart';
 export 'package:flrx_validator/src/rules/email_rule.dart';
 export 'package:flrx_validator/src/rules/in_rule.dart';

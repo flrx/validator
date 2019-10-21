@@ -29,6 +29,22 @@ class _MaterialFormState extends State<MaterialForm> {
                     .build(),
                 decoration: InputDecoration(hintText: 'Email'),
               ),
+              TextFormField(
+                validator: Validator<String>()
+                    .add(RequiredRule())
+                    .add(AllRule<String>(
+                      <Rule<String>>[
+                        MinLengthRule(8),
+                        RegexRule(
+                          r'(?=.*[a-z])',
+                          validationMessage:
+                              ":entity should contain one lowercase character",
+                        ),
+                      ],
+                    ))
+                    .build(),
+                decoration: InputDecoration(hintText: 'Email'),
+              ),
               buildDropdown(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),

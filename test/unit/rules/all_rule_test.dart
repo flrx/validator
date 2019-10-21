@@ -12,10 +12,7 @@ void main() {
           r'(?=.*[a-z])',
           validationMessage: ":entity should contain one lowercase character",
         ),
-      ]
-          .map((Rule<String> rule) =>
-              rule..transformMessage = StringUtils.replaceWithValues)
-          .toList(),
+      ],
     );
     rule.transformMessage = StringUtils.replaceWithValues;
 
