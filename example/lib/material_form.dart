@@ -32,7 +32,7 @@ class _MaterialFormState extends State<MaterialForm> {
               TextFormField(
                 validator: Validator<String>()
                     .add(RequiredRule())
-                    .add(AllRule<String>(
+                    .add(EachRule<String>(
                       <Rule<String>>[
                         MinLengthRule(8),
                         RegexRule(

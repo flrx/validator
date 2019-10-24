@@ -154,14 +154,14 @@ Validator<String>()
 Value is not a valid email address.
 ```
 
-### AllRule
+### EachRule
 
-This `Rule` checks whether the input provided passes all of the `Rule`s provided to `AllRule`.
+This `Rule` checks whether the input provided passes all of the `Rule`s provided to `EachRule`.
 This rule also returns the validation message for all `Rule`s passed to it.
 
 ```dart
 Validator<String>()
-    .add(AllRule([
+    .add(EachRule([
       MinLengthRule(6),
       RegexRule(
         r'(?=.*[a-z])',
@@ -178,7 +178,7 @@ Password should be more than 6 characters
 Password should contain one lowercase character
 ```
 
-`AllRule` also accepts a `concatenator` which concatenates all the validation messages.
+`EachRule` also accepts a `concatenator` which concatenates all the validation messages.
 
 ## Custom Validation Rule
 

@@ -1,7 +1,7 @@
 ## [v0.4.0]
 
 ### Added
-- `AllRule`
+- `EachRule`
 
 ### Changed
 - Moved all files to src folder. Use `import 'package:flrx_validator/validator.dart';` *BREAKING CHANGE*

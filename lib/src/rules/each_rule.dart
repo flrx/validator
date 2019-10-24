@@ -2,7 +2,7 @@ import 'package:flrx_validator/src/rules/rule.dart';
 
 /// A [Rule] subclass which runs validation on the list of [Rule]
 /// and does not stop if any of them fail.
-class AllRule<T> extends Rule<T> {
+class EachRule<T> extends Rule<T> {
   /// The list of [Rule] to be validated for.
   final List<Rule<T>> _ruleList;
 
@@ -10,7 +10,7 @@ class AllRule<T> extends Rule<T> {
   final String Function(List<String>) concatenator;
 
   /// The default constructor
-  AllRule(
+  EachRule(
     this._ruleList, {
     String validationMessage,
     this.concatenator = joinWithNewLine,
@@ -21,7 +21,7 @@ class AllRule<T> extends Rule<T> {
 
   @override
   String onValidate(String entityName, T value) {
-    List<String> allRulesValidationMessage = _ruleList
+    List<String> eachRulesValidationMessage = _ruleList
         .map((Rule<T> rule) {
           rule.transformMessage = transformMessage;
           return rule.validate(entityName, value);
@@ -29,10 +29,10 @@ class AllRule<T> extends Rule<T> {
         .where((String validationMessage) => validationMessage != null)
         .toList();
 
-    if (allRulesValidationMessage.isEmpty) {
+    if (eachRulesValidationMessage.isEmpty) {
       return null;
     }
 
-    return concatenator(allRulesValidationMessage);
+    return concatenator(eachRulesValidationMessage);
   }
 }
