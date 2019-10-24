@@ -23,7 +23,7 @@ class EachRule<T> extends Rule<T> {
   String onValidate(String entityName, T value) {
     List<String> eachRulesValidationMessage = _ruleList
         .map((Rule<T> rule) {
-          rule.transformMessage = transformMessage;
+          rule.transformMessage ??= transformMessage;
           return rule.validate(entityName, value);
         })
         .where((String validationMessage) => validationMessage != null)
