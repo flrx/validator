@@ -1,5 +1,8 @@
 ## [v0.4.0]
 
+### Added
+- `EachRule`
+
 ### Changed
 - Moved all files to src folder. Use `import 'package:flrx_validator/validator.dart';` *BREAKING CHANGE*
 
@@ -9,10 +12,10 @@
 ## [v0.3.0]
 
 ### Added
-- InRule, NotInRule
+- `InRule`, `NotInRule`
 
 ### Deprecated
-- OneOfRule in favour of InRule
+- `OneOfRule` in favour of `InRule`
 
 ### Changed
 - Minor Code Cleanup.
