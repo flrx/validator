@@ -80,20 +80,6 @@ Validator<String>(rules: [EmailRule()])
 Value is not a valid email address
 ```
 
-### OneOfRule (Deprecated, See [InRule](#inrule)) 
-
-This `Rule` checks whether the input provided is present in the the values provided to the `OneOfRule`.
-
-```dart
-Validator<String>(rules: [OneOfRule(['value1', 'value2', 'value3'])])
-```
-
-**Output**
-
-```
-Entity is not in the list of accepted values.
-```
-
 ### InRule
 
 This `Rule` checks if the value provided is in the list of accepted values.
@@ -155,10 +141,7 @@ Validator<String>(rules: [
 
 **Output**
 
-```
-Password should be more than 6 characters
-Password should contain one lowercase character
-```
+![Validator](each_rule.jpg "Each Rule Output")
 
 `EachRule` also accepts a `concatenator` which concatenates all the validation messages.
 
