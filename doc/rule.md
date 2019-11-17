@@ -130,7 +130,7 @@ This rule also returns the validation message for all `Rule`s passed to it.
 ```dart
 Validator<String>(rules: [
   EachRule([
-    MinLengthRule(6),
+    MinLengthRule(8),
     RegexRule(
       r'(?=.*[a-z])',
       validationMessage: ":entity should contain one lowercase character",
