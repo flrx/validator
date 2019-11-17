@@ -43,7 +43,8 @@ void main() {
             route, <String, String>{paramName: null});
       }, throwsA(predicate((Error e) {
         return e is ArgumentError &&
-            e.message == 'Value cannot be null. $paramName is passed as null';
+            e.toString() ==
+                'Invalid argument(s) ($paramName): Must not be null';
       })));
     });
 
@@ -54,7 +55,8 @@ void main() {
         return StringUtils.replaceWithValues(route, <String, String>{});
       }, throwsA(predicate((Error e) {
         return e is ArgumentError &&
-            e.message == 'Value cannot be null. $paramName is passed as null';
+            e.toString() ==
+                'Invalid argument(s) ($paramName): Must not be null';
       })));
     });
 
@@ -123,7 +125,7 @@ void main() {
             sentence, <String, String>{'coincidence': 'bro'});
       }, throwsA(predicate((Error e) {
         return e is ArgumentError &&
-            e.message == 'Value cannot be null. name is passed as null';
+            e.toString() == 'Invalid argument(s) (name): Must not be null';
       })));
     });
   });
