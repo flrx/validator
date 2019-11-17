@@ -43,10 +43,10 @@ class Validator<T> {
   @Deprecated('No need to call build anymore')
   String Function(T value) build() => validate;
 
-  String validate(T value) => call(value);
+  String call(T value) => validate(value);
 
   /// Validates and returns an error message(if any).
-  String call(T value) {
+  String validate(T value) {
     String validationMessage;
     rulesList.any((Rule<T> rule) {
       rule.transformMessage ??= transformMessage;
