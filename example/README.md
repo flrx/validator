@@ -33,7 +33,7 @@ class _MaterialFormState extends State<MaterialForm> {
             children: <Widget>[
               TextFormField(
                 validator:
-                    Validator().add(RequiredRule()).add(EmailRule()).build(),
+                    Validator().add(RequiredRule()).add(EmailRule()),
                 decoration: InputDecoration(hintText: 'Email'),
               ),
               buildDropdown(),
@@ -53,7 +53,7 @@ class _MaterialFormState extends State<MaterialForm> {
 
   Widget buildDropdown() {
     return DropdownButtonFormField<String>(
-      validator: Validator().add(RequiredRule()).build(),
+      validator: Validator().add(RequiredRule()),
       value: "",
       items: <DropdownMenuItem<String>>[
         DropdownMenuItem<String>(

@@ -23,10 +23,8 @@ class _MaterialFormState extends State<MaterialForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               TextFormField(
-                validator: Validator<String>()
-                    .add(RequiredRule())
-                    .add(EmailRule())
-                    .build(),
+                validator:
+                    Validator<String>().add(RequiredRule()).add(EmailRule()),
                 decoration: InputDecoration(hintText: 'Email'),
               ),
               TextFormField(
@@ -41,8 +39,7 @@ class _MaterialFormState extends State<MaterialForm> {
                               ":entity should contain one lowercase character",
                         ),
                       ],
-                    ))
-                    .build(),
+                    )),
                 decoration: InputDecoration(hintText: 'Password'),
                 obscureText: true,
               ),
@@ -63,7 +60,7 @@ class _MaterialFormState extends State<MaterialForm> {
 
   Widget buildDropdown() {
     return DropdownButtonFormField<String>(
-      validator: Validator<String>().add(RequiredRule()).build(),
+      validator: Validator<String>().add(RequiredRule()),
       value: "",
       items: const <DropdownMenuItem<String>>[
         DropdownMenuItem<String>(

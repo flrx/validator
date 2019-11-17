@@ -17,7 +17,6 @@ This `Rule` validates if the input provided to it is not empty.
 ```dart
 Validator<String>()
     .add(RequiredRule())
-    .build()
 ```
 
 **Output**
@@ -33,7 +32,6 @@ This `Rule` validates if the input's length is less than the max limit.
 ```dart
 Validator<String>()
     .add(MaxLengthRule(20))
-    .build()
 ```
 
 **Output**
@@ -49,7 +47,6 @@ This `Rule` validates if the input's length is more than the min limit.
 ```dart
 Validator<String>()
     .add(MinLengthRule(6))
-    .build()
 ```
 
 **Output**
@@ -65,7 +62,6 @@ This `Rule` validates if the input matches a `RegEx` pattern.
 ```dart
 Validator<String>()
     .add(RegexRule(r"([(+]*[0-9]+[()+. -]*)"))
-    .build()
 ```
 
 **Output**
@@ -81,7 +77,6 @@ This `Rule` is an extension of `RegexRule` which checks the input against the em
 ```dart
 Validator<String>()
     .add(EmailRule())
-    .build()
 ```
 
 **Output**
@@ -97,7 +92,6 @@ This `Rule` checks whether the input provided is present in the the values provi
 ```dart
 Validator<String>()
     .add(OneOfRule(['value1', 'value2', 'value3']))
-    .build()
 ```
 
 **Output**
@@ -113,7 +107,6 @@ This `Rule` checks if the value provided is in the list of accepted values.
 ```dart
 Validator<String>()
     .add(InRule(['value1', 'value2', 'value3']))
-    .build()
 ```
 
 **Output**
@@ -129,7 +122,6 @@ This `Rule` checks if the value provided is not in the list of rejected values.
 ```dart
 Validator<String>()
     .add(NotInRule(['value1', 'value2', 'value3']))
-    .build()
 ```
 
 **Output**
@@ -145,7 +137,6 @@ This `Rule` checks whether the input provided passes any of the `Rule`s provided
 ```dart
 Validator<String>()
     .add(AnyRule([MinLengthRule(6), EmailRule()]))
-    .build()
 ```
 
 **Output**
@@ -168,7 +159,6 @@ Validator<String>()
         validationMessage: ":entity should contain one lowercase character",
       ),
     ]))
-    .build()
 ```
 
 **Output**
@@ -197,7 +187,6 @@ You can pass a custom message as follows
 ```dart
 Validator<String>()
     .add(RequiredRule(validationMessage:"Email is needed for creating an account"))
-    .build()
 ```
 
 **Output**

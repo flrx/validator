@@ -40,10 +40,13 @@ class Validator<T> {
   }
 
   /// Returns a Function that can be called to validate. Added as a convenience for Flutter
+  @Deprecated('No need to call build anymore')
   String Function(T value) build() => validate;
 
+  String validate(T value) => call(value);
+
   /// Validates and returns an error message(if any).
-  String validate(T value) {
+  String call(T value) {
     String validationMessage;
     rulesList.any((Rule<T> rule) {
       rule.transformMessage ??= transformMessage;

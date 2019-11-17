@@ -12,6 +12,18 @@ void main() {
     mockRule = MockRule();
   });
 
+  group('Validator\'s legacy functions run as expected', () {
+    test('Validator\'s build method runs the validator', () {
+      Function validationFunction = validator.add(mockRule).build();
+      String validationMessage = validationFunction(null);
+      expect(validationMessage, null);
+    });
+    test('Validator\'s validate method runs the validator', () {
+      String validationMessage = validator.add(mockRule).validate(null);
+      expect(validationMessage, null);
+    });
+  });
+
   group('validator_rules_tests', () {
     test('test_validation_has_all_added_rules', () {
       validator.add(mockRule);
@@ -24,13 +36,13 @@ void main() {
     });
 
     test('test_validation_rule_passes', () {
-      Function validationFunction = validator.add(mockRule).build();
+      Function validationFunction = validator.add(mockRule);
       String validationMessage = validationFunction(null);
       expect(validationMessage, null);
     });
 
     test('test_validation_rule_fails', () {
-      Function validationFunction = validator.add(mockRule).build();
+      Function validationFunction = validator.add(mockRule);
       String validationMessage = validationFunction("Fail");
       expect(validationMessage, "Fail");
     });
@@ -43,7 +55,7 @@ void main() {
     test('test_validator_with_message_transformer', () {
       Validator<String> customValidator =
           Validator<String>(transformMessage: upperCaseTransformer);
-      Function validationFunction = customValidator.add(mockRule).build();
+      Function validationFunction = customValidator.add(mockRule);
       String validationMessage = validationFunction("value");
       expect(validationMessage, "VALUE");
     });
@@ -53,7 +65,7 @@ void main() {
           Validator<String>(transformMessage: upperCaseTransformer);
       mockRule.transformMessage =
           (String message, Map<String, String> params) => message.toLowerCase();
-      Function validationFunction = customValidator.add(mockRule).build();
+      Function validationFunction = customValidator.add(mockRule);
       String validationMessage = validationFunction("Value");
       expect(validationMessage, "value");
     });
@@ -70,7 +82,7 @@ void main() {
             expect(params['mockParam'], mockParamValue);
             return message.toUpperCase();
           });
-      Function validationFunction = customValidator.add(mockRule).build();
+      Function validationFunction = customValidator.add(mockRule);
       validationFunction(valueToValidate);
     });
   });

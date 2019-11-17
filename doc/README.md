@@ -11,7 +11,6 @@ TextFormField(
     validator: Validator<String>()
         .add(RequiredRule())
         .add(EmailRule())
-        .build()
 );
 ```
 
