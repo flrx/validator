@@ -14,7 +14,7 @@ class AnyRule<T> extends Rule<T> {
   String onValidate(String entityName, T value) {
     String ruleValidationMessage;
     _ruleList.reversed.any((Rule<T> rule) {
-      rule.transformMessage = transformMessage;
+      rule.transformMessage ??= transformMessage;
       ruleValidationMessage = rule.validate(entityName, value);
       return ruleValidationMessage == null;
     });

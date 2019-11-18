@@ -10,6 +10,9 @@
 ### Changed
 - Moved all files to src folder. Use `import 'package:flrx_validator/validator.dart';` *BREAKING CHANGE*
 
+### Fixed
+- Fixed `transformMessage` not applying properly in `AnyRule`
+
 ### Removed
 - OneOfRule (deprecated in v0.3.0)
 
