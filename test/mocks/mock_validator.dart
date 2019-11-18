@@ -1,5 +1,5 @@
+import 'package:flrx_validator/flrx_validator.dart';
 import 'package:flrx_validator/src/validator.dart';
-import 'package:flrx_validator/validator.dart';
 
 class MockValidator<T> extends Validator<T> {
   @override

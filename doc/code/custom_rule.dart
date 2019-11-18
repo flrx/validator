@@ -1,4 +1,4 @@
-import 'package:flrx_validator/validator.dart';
+import 'package:flrx_validator/flrx_validator.dart';
 
 class CustomRule<T> extends Rule<T> {
   CustomRule({this.customParam, validationMessage}) : super(validationMessage);
