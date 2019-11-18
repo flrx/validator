@@ -8,9 +8,9 @@ It is as simple as doing the following:
 
 ```dart
 TextFormField(
-    validator: Validator<String>()
-        .add(RequiredRule())
-        .add(EmailRule())
+    validator: Validator<String>(
+      rules: [RequiredRule(), EmailRule()],
+    )
 );
 ```
 
