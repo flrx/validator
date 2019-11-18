@@ -1,5 +1,5 @@
+import 'package:flrx_validator/flrx_validator.dart';
 import 'package:flrx_validator/src/utils/string_utils.dart';
-import 'package:flrx_validator/validator.dart';
 import 'package:test/test.dart';
 
 // Test Cases are from Microsoft,

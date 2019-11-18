@@ -1,4 +1,4 @@
-import 'package:flrx_validator/validator.dart';
+import 'package:flrx_validator/flrx_validator.dart';
 
 class MockRule extends Rule<String> {
   MockRule({String validationMessage}) : super(validationMessage);
