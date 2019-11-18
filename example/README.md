@@ -7,7 +7,7 @@
 ```dart
 import 'package:flrx_validator/rules/email_rule.dart';
 import 'package:flrx_validator/rules/required_rule.dart';
-import 'package:flrx_validator/validator.dart';
+import 'package:flrx_validator/flrx_validator';
 import 'package:flutter/material.dart';
 
 class MaterialForm extends StatefulWidget {
@@ -83,7 +83,7 @@ class _MaterialFormState extends State<MaterialForm> {
 ```dart
 import 'package:flrx_validator/rules/email_rule.dart';
 import 'package:flrx_validator/rules/required_rule.dart';
-import 'package:flrx_validator/validator.dart';
+import 'package:flrx_validator/flrx_validator';
 import 'package:flutter/cupertino.dart';
 
 class CupertinoForm extends StatefulWidget {
