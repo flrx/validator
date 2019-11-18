@@ -9,7 +9,7 @@ It is as simple as doing the following:
 ```dart
 TextFormField(
     validator: Validator<String>(
-      rules: [RequiredRule(), EmailRule()]
+      rules: [RequiredRule(), EmailRule()],
     )
 );
 ```

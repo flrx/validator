@@ -15,8 +15,7 @@ Flrx Validator comes with lot of built-in rules:
 This `Rule` validates if the input provided to it is not empty.
 
 ```dart
-Validator<String>()
-    .add(RequiredRule())
+Validator<String>(rules: [RequiredRule()])
 ```
 
 **Output**
@@ -30,8 +29,7 @@ Entity is required
 This `Rule` validates if the input's length is less than the max limit.
 
 ```dart
-Validator<String>()
-    .add(MaxLengthRule(20))
+Validator<String>(rules: [MaxLengthRule(20)])
 ```
 
 **Output**
@@ -45,8 +43,7 @@ Entity should be less than 20 characters
 This `Rule` validates if the input's length is more than the min limit.
 
 ```dart
-Validator<String>()
-    .add(MinLengthRule(6))
+Validator<String>(rules: [MinLengthRule(6)])
 ```
 
 **Output**
@@ -60,8 +57,7 @@ Entity should be more than 6 characters
 This `Rule` validates if the input matches a `RegEx` pattern.
 
 ```dart
-Validator<String>()
-    .add(RegexRule(r"([(+]*[0-9]+[()+. -]*)"))
+Validator<String>(rules: [RegexRule(r"([(+]*[0-9]+[()+. -]*)")])
 ```
 
 **Output**
@@ -75,8 +71,7 @@ Value is not a valid pattern
 This `Rule` is an extension of `RegexRule` which checks the input against the email regex pattern.
 
 ```dart
-Validator<String>()
-    .add(EmailRule())
+Validator<String>(rules: [EmailRule()])
 ```
 
 **Output**
@@ -90,8 +85,7 @@ Value is not a valid email address
 This `Rule` checks whether the input provided is present in the the values provided to the `OneOfRule`.
 
 ```dart
-Validator<String>()
-    .add(OneOfRule(['value1', 'value2', 'value3']))
+Validator<String>(rules: [OneOfRule(['value1', 'value2', 'value3'])])
 ```
 
 **Output**
@@ -105,8 +99,7 @@ Entity is not in the list of accepted values.
 This `Rule` checks if the value provided is in the list of accepted values.
 
 ```dart
-Validator<String>()
-    .add(InRule(['value1', 'value2', 'value3']))
+Validator<String>(rules: [InRule(['value1', 'value2', 'value3'])])
 ```
 
 **Output**
@@ -120,8 +113,7 @@ Entity is not in the list of accepted values.
 This `Rule` checks if the value provided is not in the list of rejected values.
 
 ```dart
-Validator<String>()
-    .add(NotInRule(['value1', 'value2', 'value3']))
+Validator<String>(rules: [NotInRule(['value1', 'value2', 'value3'])])
 ```
 
 **Output**
@@ -135,8 +127,7 @@ Entity is in list of rejected values.
 This `Rule` checks whether the input provided passes any of the `Rule`s provided to `AnyRule`.
 
 ```dart
-Validator<String>()
-    .add(AnyRule([MinLengthRule(6), EmailRule()]))
+Validator<String>(rules: [AnyRule([MinLengthRule(6), EmailRule()])])
 ```
 
 **Output**
@@ -151,14 +142,15 @@ This `Rule` checks whether the input provided passes all of the `Rule`s provided
 This rule also returns the validation message for all `Rule`s passed to it.
 
 ```dart
-Validator<String>()
-    .add(EachRule([
-      MinLengthRule(6),
-      RegexRule(
-        r'(?=.*[a-z])',
-        validationMessage: ":entity should contain one lowercase character",
-      ),
-    ]))
+Validator<String>(rules: [
+  EachRule([
+    MinLengthRule(6),
+    RegexRule(
+      r'(?=.*[a-z])',
+      validationMessage: ":entity should contain one lowercase character",
+    ),
+  ])
+]);
 ```
 
 **Output**
@@ -185,8 +177,9 @@ All rules can take a custom validation message in case you want to show somethin
 You can pass a custom message as follows
 
 ```dart
-Validator<String>()
-    .add(RequiredRule(validationMessage:"Email is needed for creating an account"))
+Validator<String>(rules: [
+  RequiredRule(validationMessage:"Email is needed for creating an account")
+])
 ```
 
 **Output**

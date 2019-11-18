@@ -64,6 +64,14 @@ You might want to use a Custom [FormField](https://api.flutter.dev/flutter/widge
 
 The `Validator` takes `Rule`s against which the value is validated. You can add `Rule`s to the validator in the following ways
 
+### Via `Validator()` constructor
+
+```dart
+TextFormField(validator: Validator<String>(rules: [RequiredRule()]))
+```
+
+As `Validator`'s add method returns `Validator` instance, therefore we can chain it to do something like this.
+
 ### Via `add()`
 
 ```dart
@@ -104,8 +112,10 @@ The **`Validator`** runs the **`Rule`**'s in the order they are registered.
 
 ```dart
 TextFormField(
-    validator: Validator<String>(entityName: 'Password')
-        .add(MinLengthRule(6))
+    validator: Validator<String>(
+      rules:[MinLengthRule(6)],
+      entityName: 'Password',
+    )
 )
 ```
 
@@ -127,10 +137,11 @@ Consider a situation where we want to change the case of the message to upperCas
 
 ```dart
 TextFormField(
+    rules: [RequiredRule()],
     validator: Validator<String>(
         transformMessage: (String message, Map<String, String> params) =>
             message.toUpperCase();
-    ).add(RequiredRule())
+    )
 )
 ```
 
