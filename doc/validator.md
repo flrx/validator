@@ -15,12 +15,12 @@ The error message of the first `Rule` that fails is returned back. If all the `R
 
 There are two ways to run the validator.
 
-### Via `build()`
+### Through the instance
 
-The `Validator`'s `build()` method is useful if you want to add validation to a `FormField` Widget.
+The `Validator` instance itself can be passed to a `FormField` Widget if you want to add validation.
 
 ```dart
-TextFormField(validator: Validator<String>().build())
+TextFormField(validator: Validator<String>())
 ```
 
 
@@ -64,13 +64,20 @@ You might want to use a Custom [FormField](https://api.flutter.dev/flutter/widge
 
 The `Validator` takes `Rule`s against which the value is validated. You can add `Rule`s to the validator in the following ways
 
+### Via `Validator()` constructor
+
+```dart
+TextFormField(validator: Validator<String>(rules: [RequiredRule()]))
+```
+
+As `Validator`'s add method returns `Validator` instance, therefore we can chain it to do something like this.
+
 ### Via `add()`
 
 ```dart
 TextFormField(
     validator: Validator<String>()
         .add(RequiredRule())
-        .build()
 )
 ```
 
@@ -81,7 +88,6 @@ TextFormField(
     validator: Validator<String>()
         .add(RequiredRule())
         .add(EmailRule())
-        .build()
 )
 ```
 
@@ -93,7 +99,6 @@ If you have multiple `Rule`s to add and you do not want to chain the `add` metho
 TextFormField(
     validator: Validator<String>()
         .addAll([RequiredRule(), EmailRule()])
-        .build()
 )
 ```
 
@@ -107,9 +112,10 @@ The **`Validator`** runs the **`Rule`**'s in the order they are registered.
 
 ```dart
 TextFormField(
-    validator: Validator<String>(entityName: 'Password')
-        .add(MinLengthRule(6))
-        .build()
+    validator: Validator<String>(
+      rules:[MinLengthRule(6)],
+      entityName: 'Password',
+    )
 )
 ```
 
@@ -131,11 +137,11 @@ Consider a situation where we want to change the case of the message to upperCas
 
 ```dart
 TextFormField(
+    rules: [RequiredRule()],
     validator: Validator<String>(
         transformMessage: (String message, Map<String, String> params) =>
             message.toUpperCase();
-    ).add(RequiredRule())
-    .build()
+    )
 )
 ```
 

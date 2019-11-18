@@ -1,11 +1,30 @@
+## [v0.4.0]
+
+### Added
+- `EachRule`
+- Made `Validator` a callable class
+- Allow adding rules via `Validator` constructor
+
+### Deprecated
+- `Validator.build()`
+
+### Changed
+- Moved all files to src folder. Use `import 'package:flrx_validator/flrx_validator.dart';` *BREAKING CHANGE*
+- Minor Code cleanup
+
+### Fixed
+- Fixed `transformMessage` not applying properly in `AnyRule`
+
+### Removed
+- OneOfRule (deprecated in v0.3.0)
+
 ## [v0.3.0]
 
 ### Added
-- InRule, NotInRule
+- `InRule`, `NotInRule`
 
 ### Deprecated
-- OneOfRule in favour of InRule
-
+- `OneOfRule` in favour of `InRule`
 
 ### Changed
 - Minor Code Cleanup.
@@ -19,5 +38,7 @@
 
 Initial Release
 
+[v0.4.0]: https://github.com/flrx/validator/compare/v0.4.0...v0.3.0
+[v0.3.0]: https://github.com/flrx/validator/compare/v0.3.0...v0.2.0
 [v0.2.0]: https://github.com/flrx/validator/compare/v0.2.0...v0.1.0
 [v0.1.0]: https://github.com/flrx/validator/tag/v0.1.0

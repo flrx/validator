@@ -1,5 +1,5 @@
-import 'package:flrx_validator/rule.dart';
-import 'package:flrx_validator/src/string_utils.dart';
+import 'package:flrx_validator/src/rules/rule.dart';
+import 'package:flrx_validator/src/utils/string_utils.dart';
 
 /// A class primarily designed to retrieve validation messages based on [Rule]s.
 ///
@@ -8,9 +8,13 @@ import 'package:flrx_validator/src/string_utils.dart';
 /// The error message of the first [Rule] that fails is returned back.
 /// If all the [Rule]s pass, then null is returned.
 class Validator<T> {
-  Validator(
-      {this.entityName = "Entity",
-      this.transformMessage = StringUtils.replaceWithValues});
+  Validator({
+    List<Rule<T>> rules,
+    this.entityName = "Entity",
+    this.transformMessage = StringUtils.replaceWithValues,
+  }) {
+    this.rulesList = rules ?? <Rule<T>>[];
+  }
 
   /// The name of the field that is being evaluated.
   ///
@@ -22,7 +26,7 @@ class Validator<T> {
   ///
   /// This function can generally be used when we need to localize the message
   /// which comes back from the rules.
-  String Function(String, Map<String, String>) transformMessage;
+  MessageTransformer transformMessage;
 
   /// List of all registered rules.
   List<Rule<T>> rulesList = <Rule<T>>[];
@@ -40,7 +44,10 @@ class Validator<T> {
   }
 
   /// Returns a Function that can be called to validate. Added as a convenience for Flutter
+  @Deprecated('No need to call build anymore')
   String Function(T value) build() => validate;
+
+  String call(T value) => validate(value);
 
   /// Validates and returns an error message(if any).
   String validate(T value) {
@@ -53,3 +60,8 @@ class Validator<T> {
     return validationMessage;
   }
 }
+
+typedef MessageTransformer = String Function(
+  String message,
+  Map<String, String> valueMapping,
+);

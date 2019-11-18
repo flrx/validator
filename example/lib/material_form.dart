@@ -1,5 +1,3 @@
-import 'package:flrx_validator/rules/email_rule.dart';
-import 'package:flrx_validator/rules/required_rule.dart';
 import 'package:flrx_validator/validator.dart';
 import 'package:flutter/material.dart';
 
@@ -26,8 +24,24 @@ class _MaterialFormState extends State<MaterialForm> {
             children: <Widget>[
               TextFormField(
                 validator:
-                    Validator<String>().add(RequiredRule()).add(EmailRule()).build(),
+                    Validator<String>().add(RequiredRule()).add(EmailRule()),
                 decoration: InputDecoration(hintText: 'Email'),
+              ),
+              TextFormField(
+                validator: Validator<String>()
+                    .add(RequiredRule())
+                    .add(EachRule<String>(
+                      <Rule<String>>[
+                        MinLengthRule(8),
+                        RegexRule(
+                          r'(?=.*[a-z])',
+                          validationMessage:
+                              ":entity should contain one lowercase character",
+                        ),
+                      ],
+                    )),
+                decoration: InputDecoration(hintText: 'Password'),
+                obscureText: true,
               ),
               buildDropdown(),
               Padding(
@@ -46,7 +60,7 @@ class _MaterialFormState extends State<MaterialForm> {
 
   Widget buildDropdown() {
     return DropdownButtonFormField<String>(
-      validator: Validator<String>().add(RequiredRule()).build(),
+      validator: Validator<String>().add(RequiredRule()),
       value: "",
       items: const <DropdownMenuItem<String>>[
         DropdownMenuItem<String>(

@@ -1,6 +1,6 @@
+import 'package:flrx_validator/src/utils/string_utils.dart';
+import 'package:flrx_validator/validator.dart';
 import 'package:test/test.dart';
-import 'package:flrx_validator/rules/min_length_rule.dart';
-import 'package:flrx_validator/src/string_utils.dart';
 
 void main() {
   String entityName = "minLength";

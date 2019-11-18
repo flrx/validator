@@ -1,11 +1,13 @@
 # Flrx Validator
 
-It is a fluent API based FormField validator for flutter, that promotes code reuse. It is highly extensible, modular and testable.
-
 ![Pub](https://img.shields.io/pub/v/flrx_validator)
 [![Build Status](https://api.cirrus-ci.com/github/flrx/validator.svg)](https://cirrus-ci.com/github/flrx/validator)
 [![codecov](https://codecov.io/gh/flrx/validator/branch/master/graph/badge.svg)](https://codecov.io/gh/flrx/validator)
 [![GitHub](https://img.shields.io/github/license/flrx/validator)](https://github.com/flrx/validator/blob/master/LICENSE)
+
+A fluent API based validator designed around flutter that promotes code reuse. It is highly extensible, modular and testable.
+
+![Validator](doc/flrx_validator.png "Validator")
 
 ## Installation
 
@@ -13,7 +15,7 @@ Add the following to your `pubspec.yaml` file
 
 ```yaml
 dependencies:
-  flrx_validator: ^0.3.0
+  flrx_validator: ^0.4.0
 ```
 
 ## Usage
@@ -27,6 +29,7 @@ For more info on Flrx Validator and Rules you can see the [**documentation**](ht
 |       Rule      |   Arguments  | Description |
 |-----------------|--------------|-------------|
 |    `AnyRule`    |   ruleList   | Takes A list of rules, Passes when any of the rule passes, Useful for Validation of Username/Email Fields or similar fields|
+|    `EachRule`    |   ruleList   | Takes A list of rules, Passes when all of the rule passes and returns validation message for all rules, Useful for Validation of Password Fields or similar fields|
 |   `EmailRule`   |      -       | Passes when String is an E-Mail |
 |     `InRule`    | acceptedList | Passes when the value is included in the given list of values. |
 | `MaxLengthRule` |   maxLength  | Passes when the String length is less than the given length |
@@ -48,10 +51,9 @@ import 'package:flrx_validator/rules/required_rule.dart';
 ....
 
 TextFormField(
-    validator: Validator<String>()
-        .add(RequiredRule())
-        .add(EmailRule())
-        .build()
+    validator: Validator<String>(
+      rules: [RequiredRule(), EmailRule()]
+    )
 );
 
 ....

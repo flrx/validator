@@ -1,4 +1,4 @@
-import 'package:flrx_validator/rule.dart';
+import 'package:flrx_validator/src/rules/rule.dart';
 
 /// A [Rule] subclass which validates if any of the list of [Rule]
 /// passed to it are passing.
@@ -14,7 +14,7 @@ class AnyRule<T> extends Rule<T> {
   String onValidate(String entityName, T value) {
     String ruleValidationMessage;
     _ruleList.reversed.any((Rule<T> rule) {
-      rule.transformMessage = transformMessage;
+      rule.transformMessage ??= transformMessage;
       ruleValidationMessage = rule.validate(entityName, value);
       return ruleValidationMessage == null;
     });

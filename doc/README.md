@@ -8,10 +8,9 @@ It is as simple as doing the following:
 
 ```dart
 TextFormField(
-    validator: Validator<String>()
-        .add(RequiredRule())
-        .add(EmailRule())
-        .build()
+    validator: Validator<String>(
+      rules: [RequiredRule(), EmailRule()],
+    )
 );
 ```
 
@@ -27,5 +26,5 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flrx_validator: ^0.3.0
+  flrx_validator: ^0.4.0
 ```

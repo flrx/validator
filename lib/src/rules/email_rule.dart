@@ -1,11 +1,12 @@
-import 'package:flrx_validator/rules/regex_rule.dart';
+import 'package:flrx_validator/src/rules/regex_rule.dart';
 
 /// A [Rule] subclass validating if the given input is a valid email.
 class EmailRule extends RegexRule {
-  static const String emailRegex =
+  static String get emailRegex =>
       r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 
-  static const String _emailValidationMessage = ":value is not a valid email address";
+  static String get _emailValidationMessage =>
+      ":value is not a valid email address";
 
   EmailRule({String validationMessage})
       : super(emailRegex,

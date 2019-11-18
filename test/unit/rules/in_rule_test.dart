@@ -1,13 +1,13 @@
+import 'package:flrx_validator/src/utils/string_utils.dart';
+import 'package:flrx_validator/validator.dart';
 import 'package:test/test.dart';
-import 'package:flrx_validator/rules/one_of_rule.dart';
-import 'package:flrx_validator/src/string_utils.dart';
 
 void main() {
-  String entityName = "oneOf";
+  String entityName = "In";
   String validString = "test1";
   String invalidString = "fail";
 
-  OneOfRule<String> rule = OneOfRule<String>(<String>['test1', 'test2']);
+  InRule<String> rule = InRule<String>(<String>['test1', 'test2']);
   rule.transformMessage = StringUtils.replaceWithValues;
 
   test("valid_one_of_test", () {
