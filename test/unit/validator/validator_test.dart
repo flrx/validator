@@ -1,4 +1,4 @@
-import 'package:flrx_validator/validator.dart';
+import 'package:flrx_validator/flrx_validator.dart';
 import 'package:test/test.dart';
 
 import '../../mocks/mock_validator_rule.dart';
