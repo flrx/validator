@@ -3,6 +3,7 @@
 ### Added
 - `EachRule`
 - Made `Validator` a callable class
+- Allow adding rules via `Validator` constructor
 
 ### Deprecated
 - `Validator.build()`
