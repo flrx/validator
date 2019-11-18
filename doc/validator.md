@@ -15,12 +15,12 @@ The error message of the first `Rule` that fails is returned back. If all the `R
 
 There are two ways to run the validator.
 
-### Via `build()`
+### Through the instance
 
-The `Validator`'s `build()` method is useful if you want to add validation to a `FormField` Widget.
+The `Validator` instance itself can be passed to a `FormField` Widget if you want to add validation.
 
 ```dart
-TextFormField(validator: Validator<String>().build())
+TextFormField(validator: Validator<String>())
 ```
 
 
@@ -70,7 +70,6 @@ The `Validator` takes `Rule`s against which the value is validated. You can add 
 TextFormField(
     validator: Validator<String>()
         .add(RequiredRule())
-        .build()
 )
 ```
 
@@ -81,7 +80,6 @@ TextFormField(
     validator: Validator<String>()
         .add(RequiredRule())
         .add(EmailRule())
-        .build()
 )
 ```
 
@@ -93,7 +91,6 @@ If you have multiple `Rule`s to add and you do not want to chain the `add` metho
 TextFormField(
     validator: Validator<String>()
         .addAll([RequiredRule(), EmailRule()])
-        .build()
 )
 ```
 
@@ -109,7 +106,6 @@ The **`Validator`** runs the **`Rule`**'s in the order they are registered.
 TextFormField(
     validator: Validator<String>(entityName: 'Password')
         .add(MinLengthRule(6))
-        .build()
 )
 ```
 
@@ -135,7 +131,6 @@ TextFormField(
         transformMessage: (String message, Map<String, String> params) =>
             message.toUpperCase();
     ).add(RequiredRule())
-    .build()
 )
 ```
 
