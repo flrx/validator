@@ -43,7 +43,7 @@ Can't see a rule you need? Raise an issue or create a Pull Request.
 ### Example
 
 ```dart
-import 'package:flrx_validator/validator.dart';
+import 'package:flrx_validator/flrx_validator';
 import 'package:flrx_validator/rules/email_rule.dart';
 import 'package:flrx_validator/rules/required_rule.dart';
 
