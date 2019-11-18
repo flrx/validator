@@ -9,7 +9,7 @@
 - `Validator.build()`
 
 ### Changed
-- Moved all files to src folder. Use `import 'package:flrx_validator/validator.dart';` *BREAKING CHANGE*
+- Moved all files to src folder. Use `import 'package:flrx_validator/flrx_validator.dart';` *BREAKING CHANGE*
 - Minor Code cleanup
 
 ### Fixed
