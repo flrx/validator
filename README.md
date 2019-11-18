@@ -51,9 +51,9 @@ import 'package:flrx_validator/rules/required_rule.dart';
 ....
 
 TextFormField(
-    validator: Validator<String>()
-        .add(RequiredRule())
-        .add(EmailRule())
+    validator: Validator<String>(
+      rules: [RequiredRule(), EmailRule()]
+    )
 );
 
 ....

@@ -8,9 +8,13 @@ import 'package:flrx_validator/src/utils/string_utils.dart';
 /// The error message of the first [Rule] that fails is returned back.
 /// If all the [Rule]s pass, then null is returned.
 class Validator<T> {
-  Validator(
-      {this.entityName = "Entity",
-      this.transformMessage = StringUtils.replaceWithValues});
+  Validator({
+    List<Rule<T>> rules,
+    this.entityName = "Entity",
+    this.transformMessage = StringUtils.replaceWithValues,
+  }) {
+    this.rulesList = rules;
+  }
 
   /// The name of the field that is being evaluated.
   ///

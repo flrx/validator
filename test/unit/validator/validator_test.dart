@@ -24,6 +24,21 @@ void main() {
     });
   });
 
+  group('Validator with Rules specified in constructor tests', () {
+    Validator<String> customValidator =
+        Validator<String>(rules: <Rule<String>>[RequiredRule(), mockRule]);
+    test('Validator has the ruleslist initialized with the rules in contructor',
+        () {
+      expect(customValidator.rulesList.length, 2);
+    });
+
+    test('Can add rules in validator after being initialized with other rules',
+        () {
+      customValidator.add(MaxLengthRule(20));
+      expect(customValidator.rulesList.length, 3);
+    });
+  });
+
   group('validator_rules_tests', () {
     test('test_validation_has_all_added_rules', () {
       validator.add(mockRule);
