@@ -13,7 +13,7 @@ class Validator<T> {
     this.entityName = "Entity",
     this.transformMessage = StringUtils.replaceWithValues,
   }) {
-    this.rulesList = rules;
+    this.rulesList = rules ?? <Rule<T>>[];
   }
 
   /// The name of the field that is being evaluated.
