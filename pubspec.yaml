@@ -17,4 +17,4 @@ dependencies:
 dev_dependencies:
   test: ^1.6.5
   test_coverage: ^0.3.0+1
-  pedantic: ^1.8.0
+  pedantic: ^1.9.2

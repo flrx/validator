@@ -10,13 +10,13 @@ class MinLengthRule extends Rule<String> {
   @override
   String onValidate(String entityName, String value) {
     if (value.length < minLength) {
-      return ":entity should be more than :minLength characters";
+      return ':entity should be more than :minLength characters';
     }
     return null;
   }
 
   @override
   Map<String, String> getRuleSpecificParams() {
-    return <String, String>{"minLength": minLength.toString()};
+    return {'minLength': minLength.toString()};
   }
 }

@@ -13,11 +13,11 @@ class MaxLengthRule extends Rule<String> {
       return null;
     }
     return validationMessage ??
-        ":entity should be less than :maxLength characters";
+        ':entity should be less than :maxLength characters';
   }
 
   @override
   Map<String, String> getRuleSpecificParams() {
-    return <String, String>{"maxLength": maxLength.toString()};
+    return {'maxLength': maxLength.toString()};
   }
 }

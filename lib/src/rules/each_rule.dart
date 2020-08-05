@@ -17,11 +17,11 @@ class EachRule<T> extends Rule<T> {
   }) : super(validationMessage);
 
   static String joinWithNewLine(List<String> validationMessages) =>
-      validationMessages.join("\n");
+      validationMessages.join('\n');
 
   @override
   String onValidate(String entityName, T value) {
-    List<String> eachRulesValidationMessage = _ruleList
+    var eachRulesValidationMessage = _ruleList
         .map((Rule<T> rule) {
           rule.transformMessage ??= transformMessage;
           return rule.validate(entityName, value);

@@ -32,7 +32,7 @@ abstract class Rule<T> {
   /// Override it on the child class when necessary.
   @visibleForOverriding
   String validate(String entityName, T value) {
-    String validationMessageFromRule = onValidate(entityName, value);
+    var validationMessageFromRule = onValidate(entityName, value);
     if (validationMessageFromRule == null) {
       return null;
     }
@@ -46,7 +46,7 @@ abstract class Rule<T> {
   @protected
   String onValidate(String entityName, T value);
 
-  /// Returns a Map of values that are neede to be replaced in
+  /// Returns a Map of values that are needed to be replaced in
   /// [validationMessage].
   ///
   /// This function is takes the default entity and value along with

@@ -8,9 +8,9 @@ class RegexRule extends Rule<String> {
 
   @override
   String onValidate(String entityName, String value) {
-    RegExp regExp = RegExp(regex);
+    var regExp = RegExp(regex);
     if (!regExp.hasMatch(value)) {
-      return ":value is not a valid pattern";
+      return ':value is not a valid pattern';
     }
     return null;
   }

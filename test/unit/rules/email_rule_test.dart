@@ -5,8 +5,8 @@ import 'package:test/test.dart';
 // Test Cases are from Microsoft,
 // https://blogs.msdn.microsoft.com/testing123/2009/02/06/email-address-test-cases/
 void main() {
-  String entityName = "email";
-  List<String> validEmailIds = <String>[
+  var entityName = 'email';
+  var validEmailIds = <String>[
     'abcd@example.com',
     'firstname.lastname@domain.com',
     'email@subdomain.domain.com',
@@ -22,7 +22,7 @@ void main() {
     // 'email@[123.123.123.123]',
     // '"email"@domain.com',
   ];
-  List<String> invalidEmailIds = <String>[
+  var invalidEmailIds = <String>[
     'plainaddress',
     'abcd@example,com',
     r'#@%^%#$@#$@#.com',
@@ -41,25 +41,25 @@ void main() {
     //  'email@domain',
   ];
 
-  EmailRule rule = EmailRule();
+  var rule = EmailRule();
   rule.transformMessage = StringUtils.replaceWithValues;
 
-  test("valid_email_test", () {
+  test('valid_email_test', () {
     validEmailIds.forEach((String emailId) {
-      String validationError = rule.validate(entityName, emailId);
+      var validationError = rule.validate(entityName, emailId);
       expect(validationError, null);
     });
   });
 
-  test("invalid_email_test", () {
+  test('invalid_email_test', () {
     invalidEmailIds.forEach((String emailId) {
-      String validationError = rule.validate(entityName, emailId);
-      expect(validationError, "$emailId is not a valid email address");
+      var validationError = rule.validate(entityName, emailId);
+      expect(validationError, '$emailId is not a valid email address');
     });
   });
 
-  test("empty_email_test", () {
-    String validationError = rule.validate(entityName, '');
-    expect(validationError, " is not a valid email address");
+  test('empty_email_test', () {
+    var validationError = rule.validate(entityName, '');
+    expect(validationError, ' is not a valid email address');
   });
 }
