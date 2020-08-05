@@ -10,10 +10,10 @@ import 'package:flrx_validator/src/utils/string_utils.dart';
 class Validator<T> {
   Validator({
     List<Rule<T>> rules,
-    this.entityName = "Entity",
+    this.entityName = 'Entity',
     this.transformMessage = StringUtils.replaceWithValues,
   }) {
-    this.rulesList = rules ?? <Rule<T>>[];
+    rulesList = rules ?? <Rule<T>>[];
   }
 
   /// The name of the field that is being evaluated.
@@ -43,9 +43,6 @@ class Validator<T> {
     return this;
   }
 
-  /// Returns a Function that can be called to validate. Added as a convenience for Flutter
-  @Deprecated('No need to call build anymore')
-  String Function(T value) build() => validate;
 
   String call(T value) => validate(value);
 

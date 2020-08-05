@@ -6,7 +6,7 @@ class EmailRule extends RegexRule {
       r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
 
   static String get _emailValidationMessage =>
-      ":value is not a valid email address";
+      ':value is not a valid email address';
 
   EmailRule({String validationMessage})
       : super(emailRegex,

@@ -9,7 +9,7 @@ class NotInRule<T> extends Rule<T> {
 
   @override
   String onValidate(String entityName, T value) {
-    String validationMessage = ":entity is in list of rejected values";
+    var validationMessage = ':entity is in list of rejected values';
     return rejectionList.contains(value) ? validationMessage : null;
   }
 }

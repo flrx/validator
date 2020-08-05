@@ -5,24 +5,24 @@ import 'package:test/test.dart';
 import '../../mocks/mock_validator_rule.dart';
 
 void main() {
-  String entityName = "any";
+  var entityName = 'any';
   String validForMockRule;
-  String invalidForMockRule = "invalid";
+  var invalidForMockRule = 'invalid';
 
-  AnyRule<String> rule = AnyRule<String>(<Rule<String>>[
+  var rule = AnyRule<String>(<Rule<String>>[
     MockRule(),
     MockAlwaysFailRule<String>(),
   ]);
 
   rule.transformMessage = StringUtils.replaceWithValues;
 
-  test("valid_any_rule_test", () {
-    String validationError = rule.validate(entityName, validForMockRule);
+  test('valid_any_rule_test', () {
+    var validationError = rule.validate(entityName, validForMockRule);
     expect(validationError, validForMockRule);
   });
 
-  test("invalid_any_rule_test", () {
-    String validationError = rule.validate(entityName, invalidForMockRule);
+  test('invalid_any_rule_test', () {
+    var validationError = rule.validate(entityName, invalidForMockRule);
     expect(validationError, invalidForMockRule);
   });
 }

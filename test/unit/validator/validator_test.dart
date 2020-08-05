@@ -13,19 +13,14 @@ void main() {
   });
 
   group('Validator\'s legacy functions run as expected', () {
-    test('Validator\'s build method runs the validator', () {
-      Function validationFunction = validator.add(mockRule).build();
-      String validationMessage = validationFunction(null);
-      expect(validationMessage, null);
-    });
     test('Validator\'s validate method runs the validator', () {
-      String validationMessage = validator.add(mockRule).validate(null);
+      var validationMessage = validator.add(mockRule).validate(null);
       expect(validationMessage, null);
     });
   });
 
   group('Validator with Rules specified in constructor tests', () {
-    Validator<String> customValidator =
+    var customValidator =
         Validator<String>(rules: <Rule<String>>[RequiredRule(), mockRule]);
     test('Validator has the ruleslist initialized with the rules in contructor',
         () {
@@ -58,38 +53,38 @@ void main() {
 
     test('test_validation_rule_fails', () {
       Function validationFunction = validator.add(mockRule);
-      String validationMessage = validationFunction("Fail");
-      expect(validationMessage, "Fail");
+      String validationMessage = validationFunction('Fail');
+      expect(validationMessage, 'Fail');
     });
   });
 
   group('validator_transform_message_tests', () {
-    String Function(String, Map<String, String>) upperCaseTransformer =
+    var upperCaseTransformer =
         (String message, Map<String, String> _) => message.toUpperCase();
 
     test('test_validator_with_message_transformer', () {
-      Validator<String> customValidator =
+      var customValidator =
           Validator<String>(transformMessage: upperCaseTransformer);
       Function validationFunction = customValidator.add(mockRule);
-      String validationMessage = validationFunction("value");
-      expect(validationMessage, "VALUE");
+      String validationMessage = validationFunction('value');
+      expect(validationMessage, 'VALUE');
     });
 
     test('test_rule_uses_custom_transformer', () {
-      Validator<String> customValidator =
+      var customValidator =
           Validator<String>(transformMessage: upperCaseTransformer);
       mockRule.transformMessage =
           (String message, Map<String, String> params) => message.toLowerCase();
       Function validationFunction = customValidator.add(mockRule);
-      String validationMessage = validationFunction("Value");
-      expect(validationMessage, "value");
+      String validationMessage = validationFunction('Value');
+      expect(validationMessage, 'value');
     });
 
     test('test_transform_message_gets_all_params', () {
-      String entityName = 'MockEntity';
-      String valueToValidate = 'Value';
-      String mockParamValue = 'mockParamValue';
-      Validator<String> customValidator = Validator<String>(
+      var entityName = 'MockEntity';
+      var valueToValidate = 'Value';
+      var mockParamValue = 'mockParamValue';
+      var customValidator = Validator<String>(
           entityName: entityName,
           transformMessage: (String message, Map<String, String> params) {
             expect(params['entity'], entityName);

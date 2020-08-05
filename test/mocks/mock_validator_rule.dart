@@ -8,7 +8,7 @@ class MockRule extends Rule<String> {
 
   @override
   Map<String, String> getRuleSpecificParams() =>
-      <String, String>{'mockParam': 'mockParamValue'};
+      {'mockParam': 'mockParamValue'};
 }
 
 class MockAlwaysFailRule<T> extends Rule<T> {
@@ -16,6 +16,6 @@ class MockAlwaysFailRule<T> extends Rule<T> {
 
   @override
   String onValidate(String entityName, dynamic value) {
-    return "$value is not a valid value for $entityName";
+    return '$value is not a valid value for $entityName';
   }
 }
