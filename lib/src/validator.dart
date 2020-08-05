@@ -43,7 +43,6 @@ class Validator<T> {
     return this;
   }
 
-
   String call(T value) => validate(value);
 
   /// Validates and returns an error message(if any).
