@@ -5,7 +5,7 @@ class MaxLengthRule<T extends dynamic> extends Rule<T> {
   final int maxLength;
 
   MaxLengthRule(this.maxLength, {String validationMessage})
-      : assert(T is List || T is Map || T is String),
+      : assert(T == List || T == Map || T == String || T == dynamic),
         super(validationMessage);
 
 
@@ -15,7 +15,7 @@ class MaxLengthRule<T extends dynamic> extends Rule<T> {
       return null;
     }
     return validationMessage ??
-        ':entity should be less than :maxLength characters';
+        ':entity length should be less than :maxLength';
   }
 
   @override

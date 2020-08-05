@@ -1,6 +1,8 @@
 ## [v0.5.0]
 
 ### Changed
+`MinLengthRule`, `MaxLengthRule` now supports List and Map
+`RequiredRule` now supports List, Map and other Data types. In case of other Data type, nullability of the value is tested
 Update Project Style,
 Migrate Example to AndroidX
 Update Docs Dependencies
@@ -48,6 +50,7 @@ Update Docs Dependencies
 
 Initial Release
 
+[v0.5.0]: https://github.com/flrx/validator/compare/v0.5.0...v0.4.0+2
 [v0.4.0+2]: https://github.com/flrx/validator/compare/v0.4.0+2...v0.3.0
 [v0.3.0]: https://github.com/flrx/validator/compare/v0.3.0...v0.2.0
 [v0.2.0]: https://github.com/flrx/validator/compare/v0.2.0...v0.1.0

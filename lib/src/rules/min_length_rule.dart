@@ -5,13 +5,13 @@ class MinLengthRule<T extends dynamic> extends Rule<T> {
   final int minLength;
 
   MinLengthRule(this.minLength, {String validationMessage})
-      : assert(T is List || T is Map || T is String),
+      : assert(T == List || T == Map || T == String || T == dynamic),
         super(validationMessage);
 
   @override
   String onValidate(String entityName, T value) {
     if (value.length < minLength) {
-      return ':entity should be more than :minLength characters';
+      return ':entity length should be more than :minLength';
     }
     return null;
   }
