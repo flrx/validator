@@ -14,6 +14,10 @@ class RequiredRule<T> extends Rule<T> {
       return ':entity is required.';
     }
 
+    if (value is Map && value.isEmpty) {
+      return ':entity is required.';
+    }
+
     if (value is String && value.isEmpty) {
       return ':entity is required.';
     }
