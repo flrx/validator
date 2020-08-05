@@ -6,22 +6,18 @@ class RequiredRule<T> extends Rule<T> {
 
   @override
   String onValidate(String entityName, T value) {
-    if (value == null) {
+    if (value == null ||
+        isEmptyIterable(value) ||
+        isEmptyMap(value) ||
+        isEmptyString(value)) {
       return ':entity is required.';
     }
-
-    if (value is Iterable && value.isEmpty) {
-      return ':entity is required.';
-    }
-
-    if (value is Map && value.isEmpty) {
-      return ':entity is required.';
-    }
-
-    if (value is String && value.isEmpty) {
-      return ':entity is required.';
-    }
-
     return null;
   }
+
+  bool isEmptyString(value) => value is String && value.isEmpty;
+
+  bool isEmptyMap(value) => value is Map && value.isEmpty;
+
+  bool isEmptyIterable(value) => value is Iterable && value.isEmpty;
 }
