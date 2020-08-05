@@ -1,3 +1,10 @@
+## [v0.5.0]
+
+### Changed
+Update Project Style,
+Migrate Example to AndroidX
+Update Docs Dependencies
+
 ## [v0.4.0+2]
 
 ### Added
