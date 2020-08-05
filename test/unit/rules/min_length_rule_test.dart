@@ -19,8 +19,8 @@ void main() {
 
     test('invalid_min_length_test', () {
       var validationError = rule.validate(entityName, invalidString);
-      expect(validationError,
-          '$entityName length should be more than $minLength');
+      expect(
+          validationError, '$entityName length should be more than $minLength');
     });
   });
   group('List Min Length Rule Test', () {
@@ -39,8 +39,8 @@ void main() {
 
     test('invalid_min_length_test', () {
       var validationError = rule.validate(entityName, invalidString);
-      expect(validationError,
-          '$entityName length should be more than $minLength');
+      expect(
+          validationError, '$entityName length should be more than $minLength');
     });
   });
 
@@ -60,8 +60,8 @@ void main() {
 
     test('invalid_min_length_test', () {
       var validationError = rule.validate(entityName, invalidString);
-      expect(validationError,
-          '$entityName length should be more than $minLength');
+      expect(
+          validationError, '$entityName length should be more than $minLength');
     });
   });
 
@@ -81,12 +81,12 @@ void main() {
 
     test('invalid_min_length_test', () {
       var validationError = rule.validate(entityName, invalidString);
-      expect(validationError,
-          '$entityName length should be more than $minLength');
+      expect(
+          validationError, '$entityName length should be more than $minLength');
     });
   });
 
   test('Object Min Length Rule Test', () {
-    expect(() => MinLengthRule<Object>(3), throwsA(const TypeMatcher<Error>()));
+    expect(() => MinLengthRule<Rule>(3), throwsA(isA<AssertionError>()));
   });
 }

@@ -19,12 +19,12 @@ void main() {
     test('Runs all rules', () {
       var message = rule.validate('Password', '123');
       expect(message,
-          'Password should be more than 6 characters\nPassword should contain one lowercase character');
+          'Password length should be more than 6\nPassword should contain one lowercase character');
     });
 
     test('Validated message exists only for rule that fails', () {
       var message = rule.validate('Password', 'abcd');
-      expect(message, 'Password should be more than 6 characters');
+      expect(message, 'Password length should be more than 6');
     });
 
     test('Validated message is null when all rules pass', () {
