@@ -71,7 +71,7 @@ class _MaterialFormState extends State<MaterialForm> {
           child: Text('Item 1'),
           value: "Item 1",
         )
-      ],
+      ], onChanged: (String value) {  },
     );
   }
 

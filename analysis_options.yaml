@@ -1,24 +1,24 @@
 include: package:pedantic/analysis_options.yaml
-#
-#linter:
-#  rules:
-#    - always_declare_return_types
-#    - always_put_control_body_on_new_line
-#    - always_put_required_named_parameters_first
-#    - annotate_overrides
-#    - avoid_bool_literals_in_conditional_expressions
-#    - close_sinks
-#    - package_prefixed_library_names
-#    - prefer_const_declarations
-#    - prefer_const_literals_to_create_immutables
-#    - prefer_interpolation_to_compose_strings
-#    - prefer_typing_uninitialized_variables
-#    - prefer_void_to_null
-#    - sort_pub_dependencies
-#    - unnecessary_await_in_return
-#    - unnecessary_brace_in_string_interps
-#    - unnecessary_getters_setters
-#    - unnecessary_lambdas
-#    - unnecessary_null_aware_assignments
-#    - unnecessary_overrides
-#    - unnecessary_statements
+
+linter:
+  rules:
+    - always_declare_return_types
+    - always_put_control_body_on_new_line
+    - always_put_required_named_parameters_first
+    - annotate_overrides
+    - avoid_bool_literals_in_conditional_expressions
+    - close_sinks
+    - package_prefixed_library_names
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+    - prefer_interpolation_to_compose_strings
+    - prefer_typing_uninitialized_variables
+    - prefer_void_to_null
+    - sort_pub_dependencies
+    - unnecessary_await_in_return
+    - unnecessary_brace_in_string_interps
+    - unnecessary_getters_setters
+    - unnecessary_lambdas
+    - unnecessary_null_aware_assignments
+    - unnecessary_overrides
+    - unnecessary_statements
