@@ -8,14 +8,12 @@ class MaxLengthRule<T extends dynamic> extends Rule<T> {
       : assert(T == List || T == Map || T == String || T == dynamic),
         super(validationMessage);
 
-
   @override
   String onValidate(String entityName, T value) {
     if (value.length <= maxLength) {
       return null;
     }
-    return validationMessage ??
-        ':entity length should be less than :maxLength';
+    return validationMessage ?? ':entity length should be less than :maxLength';
   }
 
   @override
