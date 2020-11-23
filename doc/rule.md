@@ -52,6 +52,48 @@ Validator<String>(rules: [MinLengthRule(6)])
 Entity should be more than 6 characters
 ```
 
+### NumberRule
+
+This `Rule` validates if the input is a number.
+
+```dart
+Validator<String>(rules: [NumberRule()])
+```
+
+**Output**
+
+```
+Value is not a number
+```
+
+### MinRule
+
+This `Rule` validates if the input is a number and is greater than a specific number.
+
+```dart
+Validator<String>(rules: [MinRule(20)])
+```
+
+**Output**
+
+```
+Value should be greater than 20
+```
+
+### MaxRule
+
+This `Rule` validates if the input is a number.
+
+```dart
+Validator<String>(rules: [MaxRule(100)])
+```
+
+**Output**
+
+```
+Value should be lesser than 100
+```
+
 ### RegexRule
 
 This `Rule` validates if the input matches a `RegEx` pattern.
