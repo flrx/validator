@@ -3,7 +3,6 @@ import 'package:flrx_validator/src/rules/number_rule.dart';
 /// A [Rule] subclass which validates if the value
 /// passed is at most a specific number.
 class MaxRule<T> extends NumberRule<T> {
-
   /// Value passed should be at most [maxValue]
   final num maxValue;
 
