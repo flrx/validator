@@ -13,6 +13,9 @@ Flrx Validator comes with lot of built-in rules:
 ### RequiredRule
 
 This `Rule` validates if the input provided to it is not empty.
+It explicitly supports String, Map and Iterable.
+It implicitly supports any type which has the length getter.
+For any other type, the nullability of the value is tested,
 
 ```dart
 Validator<String>(rules: [RequiredRule()])
@@ -27,6 +30,8 @@ Entity is required
 ### MaxLengthRule
 
 This `Rule` validates if the input's length is less than the max limit.
+It explicitly supports String, Map and Iterable.
+It implicitly supports any type which has the length getter.
 
 ```dart
 Validator<String>(rules: [MaxLengthRule(20)])
@@ -36,6 +41,12 @@ Validator<String>(rules: [MaxLengthRule(20)])
 
 ```
 Entity should be less than 20 characters
+```
+
+To use it with your custom types, initialize the rule with dynamic Type.
+
+```dart
+Validator<MyCustomType>(rules: [MaxLengthRule<dynamic>(20)])
 ```
 
 ### MinLengthRule
@@ -51,6 +62,7 @@ Validator<String>(rules: [MinLengthRule(6)])
 ```
 Entity should be more than 6 characters
 ```
+The supported types and usage are similar to `MaxLengthRule`
 
 ### RegexRule
 

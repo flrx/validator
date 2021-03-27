@@ -1,6 +1,9 @@
 import 'package:flrx_validator/src/rules/rule.dart';
 
 /// A [Rule] subclass validating if the input is notEmpty.
+/// If the Value is null, this rule fails.
+/// If the value if of type String and if the String is empty, this rule fails.
+/// If the value if of type Iterable or Map and if the value is empty, this rule fails.
 class RequiredRule<T> extends Rule<T> {
   RequiredRule({String validationMessage}) : super(validationMessage);
 
