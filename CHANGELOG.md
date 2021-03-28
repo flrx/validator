@@ -1,4 +1,8 @@
 ## [v0.5.0]
+### Added
+Added `NumberRule` which checks if the value is a valid number or not
+Added `MinRule` which checks if the value is greater a specific number or not
+Added `MaxRule` which checks if the value is less than a specific number or not
 
 ### Changed
 Update Project Style,
