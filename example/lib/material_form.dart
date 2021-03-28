@@ -25,24 +25,26 @@ class _MaterialFormState extends State<MaterialForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               TextFormField(
-                validator: Validator<String>()
-                    .add(RequiredRule<String>())
-                    .add(EmailRule()),
+                validator: Validator<String>(rules: [
+                  RequiredRule<String>(),
+                  EmailRule(),
+                ]),
                 decoration: InputDecoration(hintText: 'Email'),
               ),
               TextFormField(
-                validator: Validator<String>()
-                    .add(RequiredRule<String>())
-                    .add(EachRule<String>(
-                      <Rule<String>>[
-                        MinLengthRule(8),
-                        RegexRule(
-                          r'(?=.*[a-z])',
-                          validationMessage:
-                              ":entity should contain one lowercase character",
-                        ),
-                      ],
-                    )),
+                validator: Validator<String>(rules: [
+                  RequiredRule<String>(),
+                  EachRule<String>(
+                    <Rule<String>>[
+                      MinLengthRule(8),
+                      RegexRule(
+                        r'(?=.*[a-z])',
+                        validationMessage:
+                            ":entity should contain one lowercase character",
+                      ),
+                    ],
+                  )
+                ]),
                 decoration: InputDecoration(hintText: 'Password'),
                 obscureText: true,
               ),
@@ -65,7 +67,7 @@ class _MaterialFormState extends State<MaterialForm> {
 
   Widget buildStringDropdown() {
     return DropdownButtonFormField<String>(
-      validator: Validator<String>().add(RequiredRule<String>()),
+      validator: Validator<String>(rules: [RequiredRule<String>()]),
       value: "",
       items: const <DropdownMenuItem<String>>[
         DropdownMenuItem<String>(
@@ -83,7 +85,7 @@ class _MaterialFormState extends State<MaterialForm> {
 
   Widget buildIntDropdown() {
     return DropdownButtonFormField<int>(
-      validator: Validator<int>().add(RequiredRule<int>()),
+      validator: Validator<int>(rules: [RequiredRule<int>()]),
       value: 1,
       items: const <DropdownMenuItem<int>>[
         DropdownMenuItem<int>(
