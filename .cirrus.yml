@@ -12,7 +12,7 @@ test_task:
     folder: ~/.pub-cache
   test_script:
     - pub get
-    - pub run test_coverage
+    - pub run test coverage=coverage
   codecov_script:
     - bash <(curl -s https://codecov.io/bash) -t $CODE_COV_TOKEN
 
