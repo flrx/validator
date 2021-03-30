@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:multiselect_formfield/multiselect_formfield.dart';
 
 class MaterialForm extends StatefulWidget {
-  MaterialForm({Key key}) : super(key: key);
+  MaterialForm({Key? key}) : super(key: key);
 
   @override
   _MaterialFormState createState() => _MaterialFormState();
@@ -11,7 +11,7 @@ class MaterialForm extends StatefulWidget {
 
 class _MaterialFormState extends State<MaterialForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  List<String> _myActivities;
+  List<String> _myActivities = [];
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +79,7 @@ class _MaterialFormState extends State<MaterialForm> {
           value: "Item 1",
         )
       ],
-      onChanged: (String value) {},
+      onChanged: (String? value) {},
     );
   }
 
@@ -101,12 +101,12 @@ class _MaterialFormState extends State<MaterialForm> {
           value: 2,
         )
       ],
-      onChanged: (int value) {},
+      onChanged: (int? value) {},
     );
   }
 
   void onFormSubmitPressed() {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState?.validate() == true) {
       // Process data.
     }
   }
@@ -114,7 +114,7 @@ class _MaterialFormState extends State<MaterialForm> {
   Widget buildMultiSelectField() {
     return MultiSelectFormField(
       autovalidate: false,
-      titleText: 'My workouts',
+      title: Text('My workouts'),
       validator: Validator<dynamic>(rules: <Rule<List<String>>>[
         RequiredRule<List<String>>(),
       ]),
@@ -153,7 +153,7 @@ class _MaterialFormState extends State<MaterialForm> {
       okButtonLabel: 'OK',
       cancelButtonLabel: 'CANCEL',
       // required: true,
-      hintText: 'Please choose one or more',
+      hintWidget: Text('Please choose one or more'),
       initialValue: _myActivities,
       onSaved: (value) {
         setState(() {
