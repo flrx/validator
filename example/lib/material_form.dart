@@ -1,5 +1,6 @@
 import 'package:flrx_validator/flrx_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:multiselect_formfield/multiselect_formfield.dart';
 
 class MaterialForm extends StatefulWidget {
   MaterialForm({Key key}) : super(key: key);
@@ -10,6 +11,7 @@ class MaterialForm extends StatefulWidget {
 
 class _MaterialFormState extends State<MaterialForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  List<String> _myActivities;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +25,14 @@ class _MaterialFormState extends State<MaterialForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               TextFormField(
-                validator:
-                    Validator<String>().add(RequiredRule()).add(EmailRule()),
+                validator: Validator<String>()
+                    .add(RequiredRule<String>())
+                    .add(EmailRule()),
                 decoration: InputDecoration(hintText: 'Email'),
               ),
               TextFormField(
                 validator: Validator<String>()
-                    .add(RequiredRule())
+                    .add(RequiredRule<String>())
                     .add(EachRule<String>(
                       <Rule<String>>[
                         MinLengthRule(8),
@@ -43,7 +46,9 @@ class _MaterialFormState extends State<MaterialForm> {
                 decoration: InputDecoration(hintText: 'Password'),
                 obscureText: true,
               ),
-              buildDropdown(),
+              buildStringDropdown(),
+              buildIntDropdown(),
+              buildMultiSelectField(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 child: RaisedButton(
@@ -58,9 +63,9 @@ class _MaterialFormState extends State<MaterialForm> {
     );
   }
 
-  Widget buildDropdown() {
+  Widget buildStringDropdown() {
     return DropdownButtonFormField<String>(
-      validator: Validator<String>().add(RequiredRule()),
+      validator: Validator<String>().add(RequiredRule<String>()),
       value: "",
       items: const <DropdownMenuItem<String>>[
         DropdownMenuItem<String>(
@@ -72,6 +77,29 @@ class _MaterialFormState extends State<MaterialForm> {
           value: "Item 1",
         )
       ],
+      onChanged: (String value) {},
+    );
+  }
+
+  Widget buildIntDropdown() {
+    return DropdownButtonFormField<int>(
+      validator: Validator<int>().add(RequiredRule<int>()),
+      value: 1,
+      items: const <DropdownMenuItem<int>>[
+        DropdownMenuItem<int>(
+          child: Text('Please select an Item'),
+          value: null,
+        ),
+        DropdownMenuItem<int>(
+          child: Text('Item 1'),
+          value: 1,
+        ),
+        DropdownMenuItem<int>(
+          child: Text('Item 2'),
+          value: 2,
+        )
+      ],
+      onChanged: (int value) {},
     );
   }
 
@@ -79,5 +107,57 @@ class _MaterialFormState extends State<MaterialForm> {
     if (_formKey.currentState.validate()) {
       // Process data.
     }
+  }
+
+  Widget buildMultiSelectField() {
+    return MultiSelectFormField(
+      autovalidate: false,
+      titleText: 'My workouts',
+      validator: Validator<dynamic>(rules: <Rule<List<String>>>[
+        RequiredRule<List<String>>(),
+      ]),
+      dataSource: const <Map<String, String>>[
+        const <String, String>{
+          "display": "Running",
+          "value": "Running",
+        },
+        const <String, String>{
+          "display": "Climbing",
+          "value": "Climbing",
+        },
+        const <String, String>{
+          "display": "Walking",
+          "value": "Walking",
+        },
+        const <String, String>{
+          "display": "Swimming",
+          "value": "Swimming",
+        },
+        const <String, String>{
+          "display": "Soccer Practice",
+          "value": "Soccer Practice",
+        },
+        const <String, String>{
+          "display": "Baseball Practice",
+          "value": "Baseball Practice",
+        },
+        const <String, String>{
+          "display": "Football Practice",
+          "value": "Football Practice",
+        },
+      ],
+      textField: 'display',
+      valueField: 'value',
+      okButtonLabel: 'OK',
+      cancelButtonLabel: 'CANCEL',
+      // required: true,
+      hintText: 'Please choose one or more',
+      initialValue: _myActivities,
+      onSaved: (value) {
+        setState(() {
+          _myActivities = value;
+        });
+      },
+    );
   }
 }

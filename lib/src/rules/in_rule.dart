@@ -9,7 +9,7 @@ class InRule<T> extends Rule<T> {
 
   @override
   String onValidate(String entityName, T value) {
-    String validationMessage = ":entity is not in list of accepted values";
+    var validationMessage = ':entity is not in list of accepted values';
     return acceptedList.contains(value) ? null : validationMessage;
   }
 }

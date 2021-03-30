@@ -3,20 +3,20 @@ import 'package:flrx_validator/src/utils/string_utils.dart';
 import 'package:test/test.dart';
 
 void main() {
-  String entityName = "In";
-  String validString = "test1";
-  String invalidString = "fail";
+  var entityName = 'In';
+  var validString = 'test1';
+  var invalidString = 'fail';
 
-  InRule<String> rule = InRule<String>(<String>['test1', 'test2']);
+  var rule = InRule<String>(<String>['test1', 'test2']);
   rule.transformMessage = StringUtils.replaceWithValues;
 
-  test("valid_one_of_test", () {
-    String validationError = rule.validate(entityName, validString);
+  test('valid_one_of_test', () {
+    var validationError = rule.validate(entityName, validString);
     expect(validationError, null);
   });
 
-  test("invalid_one_of_test", () {
-    String validationError = rule.validate(entityName, invalidString);
-    expect(validationError, "$entityName is not in list of accepted values");
+  test('invalid_one_of_test', () {
+    var validationError = rule.validate(entityName, invalidString);
+    expect(validationError, '$entityName is not in list of accepted values');
   });
 }

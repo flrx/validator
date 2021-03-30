@@ -1,7 +1,7 @@
 name: flrx_validator
 description: >
   A powerful, extensible validator package to get validation messages based on a list of rules.
-version: 0.4.0+2
+version: 0.5.0
 author: Flrx Team <flrx.dev@gmail.com>
 homepage: https://flrx.github.io/validator/
 repository: https://github.com/flrx/validator
@@ -17,4 +17,4 @@ dependencies:
 dev_dependencies:
   test: ^1.6.5
   test_coverage: ^0.3.0+1
-  pedantic: ^1.8.0
+  pedantic: ^1.9.2
