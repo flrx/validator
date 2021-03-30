@@ -9,11 +9,11 @@ class MaxRule<T> extends NumberRule<T> {
   /// The default constructor
   MaxRule(
     this.maxValue, {
-    String validationMessage,
+    String? validationMessage,
   }) : super(validationMessage: validationMessage);
 
   @override
-  String onValidate(String entityName, T value) {
+  String? onValidate(String entityName, T? value) {
     var message = super.onValidate(entityName, value);
     if (message != null) {
       return message;

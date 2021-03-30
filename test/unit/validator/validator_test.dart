@@ -4,11 +4,11 @@ import 'package:test/test.dart';
 import '../../mocks/mock_validator_rule.dart';
 
 void main() {
-  MockRule mockRule;
-  Validator<String> validator;
+  var mockRule = MockRule();
+  var validator = Validator<String  >(rules: []);
 
   setUp(() {
-    validator = Validator<String>();
+    validator = Validator<String>(rules: []);
     mockRule = MockRule();
   });
 
@@ -46,8 +46,8 @@ void main() {
     });
 
     test('test_validation_rule_passes', () {
-      Function validationFunction = validator.add(mockRule);
-      String validationMessage = validationFunction(null);
+      var validationFunction = validator.add(mockRule);
+      var validationMessage = validationFunction(null);
       expect(validationMessage, null);
     });
 
@@ -64,7 +64,7 @@ void main() {
 
     test('test_validator_with_message_transformer', () {
       var customValidator =
-          Validator<String>(transformMessage: upperCaseTransformer);
+          Validator<String>(rules: [], transformMessage: upperCaseTransformer);
       Function validationFunction = customValidator.add(mockRule);
       String validationMessage = validationFunction('value');
       expect(validationMessage, 'VALUE');
@@ -72,7 +72,7 @@ void main() {
 
     test('test_rule_uses_custom_transformer', () {
       var customValidator =
-          Validator<String>(transformMessage: upperCaseTransformer);
+          Validator<String>(rules: [], transformMessage: upperCaseTransformer);
       mockRule.transformMessage =
           (String message, Map<String, String> params) => message.toLowerCase();
       Function validationFunction = customValidator.add(mockRule);
@@ -85,6 +85,7 @@ void main() {
       var valueToValidate = 'Value';
       var mockParamValue = 'mockParamValue';
       var customValidator = Validator<String>(
+          rules: [],
           entityName: entityName,
           transformMessage: (String message, Map<String, String> params) {
             expect(params['entity'], entityName);

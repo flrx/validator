@@ -7,12 +7,12 @@ class AnyRule<T> extends Rule<T> {
   final List<Rule<T>> _ruleList;
 
   /// The default constructor
-  AnyRule(this._ruleList, {String validationMessage})
+  AnyRule(this._ruleList, {String? validationMessage})
       : super(validationMessage);
 
   @override
-  String onValidate(String entityName, T value) {
-    String ruleValidationMessage;
+  String? onValidate(String entityName, T? value) {
+    String? ruleValidationMessage;
     _ruleList.reversed.any((Rule<T> rule) {
       rule.transformMessage ??= transformMessage;
       ruleValidationMessage = rule.validate(entityName, value);

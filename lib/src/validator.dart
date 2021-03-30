@@ -9,11 +9,11 @@ import 'package:flrx_validator/src/utils/string_utils.dart';
 /// If all the [Rule]s pass, then null is returned.
 class Validator<T> {
   Validator({
-    List<Rule<T>> rules,
+    required List<Rule<T>> rules,
     this.entityName = 'Entity',
     this.transformMessage = StringUtils.replaceWithValues,
   }) {
-    rulesList = rules ?? <Rule<T>>[];
+    rulesList = rules;
   }
 
   /// The name of the field that is being evaluated.
@@ -29,7 +29,7 @@ class Validator<T> {
   MessageTransformer transformMessage;
 
   /// List of all registered rules.
-  List<Rule<T>> rulesList = <Rule<T>>[];
+  List<Rule<T?>> rulesList = <Rule<T>>[];
 
   /// Registers a single [Rule] with the [Validator].
   Validator<T> add(Rule<T> rule) {
@@ -43,12 +43,12 @@ class Validator<T> {
     return this;
   }
 
-  String call(T value) => validate(value);
+  String? call(T? value) => validate(value);
 
   /// Validates and returns an error message(if any).
-  String validate(T value) {
-    String validationMessage;
-    rulesList.any((Rule<T> rule) {
+  String? validate(T? value) {
+    String? validationMessage;
+    rulesList.any((Rule<T?> rule) {
       rule.transformMessage ??= transformMessage;
       validationMessage = rule.validate(entityName, value);
       return validationMessage != null;

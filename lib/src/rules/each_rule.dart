@@ -7,26 +7,29 @@ class EachRule<T> extends Rule<T> {
   final List<Rule<T>> _ruleList;
 
   /// A function which concatenates all the Validation Messages.
-  final String Function(List<String>) concatenator;
+  final String Function(List<String?>) concatenator;
 
   /// The default constructor
   EachRule(
     this._ruleList, {
-    String validationMessage,
+    String? validationMessage,
     this.concatenator = joinWithNewLine,
   }) : super(validationMessage);
 
-  static String joinWithNewLine(List<String> validationMessages) =>
-      validationMessages.join('\n');
+  static String joinWithNewLine(List<String?> validationMessages) {
+    return validationMessages.where((element) {
+      return element != null;
+    }).join('\n');
+  }
 
   @override
-  String onValidate(String entityName, T value) {
+  String? onValidate(String entityName, T? value) {
     var eachRulesValidationMessage = _ruleList
         .map((Rule<T> rule) {
           rule.transformMessage ??= transformMessage;
           return rule.validate(entityName, value);
         })
-        .where((String validationMessage) => validationMessage != null)
+        .where((String? validationMessage) => validationMessage != null)
         .toList();
 
     if (eachRulesValidationMessage.isEmpty) {

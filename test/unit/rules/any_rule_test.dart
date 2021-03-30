@@ -6,7 +6,7 @@ import '../../mocks/mock_validator_rule.dart';
 
 void main() {
   var entityName = 'any';
-  String validForMockRule;
+  String? validForMockRule;
   var invalidForMockRule = 'invalid';
 
   var rule = AnyRule<String>(<Rule<String>>[

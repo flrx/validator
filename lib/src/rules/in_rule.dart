@@ -4,11 +4,11 @@ import 'package:flrx_validator/src/rules/rule.dart';
 class InRule<T> extends Rule<T> {
   final List<T> acceptedList;
 
-  InRule(this.acceptedList, {String validationMessage})
+  InRule(this.acceptedList, {String? validationMessage})
       : super(validationMessage);
 
   @override
-  String onValidate(String entityName, T value) {
+  String? onValidate(String entityName, T? value) {
     var validationMessage = ':entity is not in list of accepted values';
     return acceptedList.contains(value) ? null : validationMessage;
   }
