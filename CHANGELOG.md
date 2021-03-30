@@ -7,7 +7,7 @@ Added `MaxRule` which checks if the value is less than a specific number or not
 ### Changed
 `MinLengthRule`, `MaxLengthRule` now supports List and Map
 `RequiredRule` now supports List, Map and other Data types. In case of other Data type, nullability of the value is tested
-Update Project Style,
+Update Project Style
 Migrate Example to AndroidX
 Update Docs Dependencies
 
