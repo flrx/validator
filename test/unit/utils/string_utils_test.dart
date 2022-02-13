@@ -5,8 +5,7 @@ void main() {
   group('routes replaceWithValues function test', () {
     test('no_param_route_test', () {
       var route = '/provider';
-      var paramRoute =
-          StringUtils.replaceWithValues(route, <String, String>{});
+      var paramRoute = StringUtils.replaceWithValues(route, <String, String>{});
       var expectedRoute = '/provider';
       expect(paramRoute, expectedRoute);
     });
@@ -33,19 +32,6 @@ void main() {
           route, <String, String>{'providerId': '1', 'bookingId': '2'});
       var expectedRoute = '/provider/1/2';
       expect(paramRoute, expectedRoute);
-    });
-
-    test('single_null_param_route_test', () {
-      var paramName = 'providerId';
-      expect(() {
-        var route = '/provider/:$paramName';
-        return StringUtils.replaceWithValues(
-            route, <String, String>{paramName: null});
-      }, throwsA(predicate((Error e) {
-        return e is ArgumentError &&
-            e.toString() ==
-                'Invalid argument(s) ($paramName): Must not be null';
-      })));
     });
 
     test('single_paramname_no_param_route_test', () {

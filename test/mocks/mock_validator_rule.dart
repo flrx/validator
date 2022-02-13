@@ -1,10 +1,10 @@
 import 'package:flrx_validator/flrx_validator.dart';
 
 class MockRule extends Rule<String> {
-  MockRule({String validationMessage}) : super(validationMessage);
+  MockRule({String? validationMessage}) : super(validationMessage);
 
   @override
-  String onValidate(String entityName, String value) => value;
+  String? onValidate(String entityName, String? value) => value;
 
   @override
   Map<String, String> getRuleSpecificParams() =>

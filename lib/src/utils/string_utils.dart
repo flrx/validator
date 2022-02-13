@@ -4,10 +4,10 @@ class StringUtils {
       if (match.groupCount <= 0) {
         return '';
       }
-      var key = match.group(0).substring(1);
+      var key = match.group(0)!.substring(1);
       var value = valueMap[key];
       ArgumentError.checkNotNull(value, key);
-      return value;
+      return value!;
     });
   }
 }

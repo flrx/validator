@@ -45,17 +45,17 @@ void main() {
   rule.transformMessage = StringUtils.replaceWithValues;
 
   test('valid_email_test', () {
-    validEmailIds.forEach((String emailId) {
+    for (var emailId in validEmailIds) {
       var validationError = rule.validate(entityName, emailId);
       expect(validationError, null);
-    });
+    }
   });
 
   test('invalid_email_test', () {
-    invalidEmailIds.forEach((String emailId) {
+    for (var emailId in invalidEmailIds) {
       var validationError = rule.validate(entityName, emailId);
       expect(validationError, '$emailId is not a valid email address');
-    });
+    }
   });
 
   test('empty_email_test', () {

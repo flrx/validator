@@ -3,7 +3,7 @@ container:
 
 style_task:
   test_style_script:
-    - dartfmt --set-exit-if-changed lib
+    - dart format --set-exit-if-changed lib
 
 test_task:
   env:
@@ -12,7 +12,7 @@ test_task:
     folder: ~/.pub-cache
   test_script:
     - pub get
-    - pub run test_coverage
+    - dart test --coverage=coverage
   codecov_script:
     - bash <(curl -s https://codecov.io/bash) -t $CODE_COV_TOKEN
 

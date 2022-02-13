@@ -8,7 +8,7 @@ class EmailRule extends RegexRule {
   static String get _emailValidationMessage =>
       ':value is not a valid email address';
 
-  EmailRule({String validationMessage})
+  EmailRule({String? validationMessage})
       : super(emailRegex,
             validationMessage: validationMessage ?? _emailValidationMessage);
 }

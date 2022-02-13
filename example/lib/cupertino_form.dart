@@ -2,12 +2,14 @@ import 'package:flrx_validator/flrx_validator.dart';
 import 'package:flutter/cupertino.dart';
 
 class CupertinoForm extends StatefulWidget {
+  const CupertinoForm({Key? key}) : super(key: key);
+
   @override
   _CupertinoFormState createState() => _CupertinoFormState();
 }
 
 class _CupertinoFormState extends State<CupertinoForm> {
-  TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController _textEditingController = TextEditingController();
   String emailValidationMessage = "";
 
   @override
@@ -20,7 +22,7 @@ class _CupertinoFormState extends State<CupertinoForm> {
         color: CupertinoColors.black,
       ),
       child: CupertinoPageScaffold(
-          navigationBar: CupertinoNavigationBar(
+          navigationBar: const CupertinoNavigationBar(
             previousPageTitle: "Form Selection",
             middle: Text('Cupertino Form Validation'),
           ),
@@ -31,30 +33,30 @@ class _CupertinoFormState extends State<CupertinoForm> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  SizedBox(height: 72),
+                  const SizedBox(height: 72),
                   CupertinoTextField(
                     controller: _textEditingController,
                     prefixMode: OverlayVisibilityMode.always,
                     placeholder: 'Email',
-                    prefix: Icon(
+                    prefix: const Icon(
                       CupertinoIcons.mail_solid,
                       color: CupertinoColors.lightBackgroundGray,
                       size: 28.0,
                     ),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       border: Border(
                           bottom: BorderSide(
                               width: 0.0, color: CupertinoColors.inactiveGray)),
                     ),
                     padding:
-                        EdgeInsets.symmetric(horizontal: 6.0, vertical: 12.0),
+                        const EdgeInsets.symmetric(horizontal: 6.0, vertical: 12.0),
                     clearButtonMode: OverlayVisibilityMode.editing,
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(34, 8, 16, 16),
                     child: Text(
                       emailValidationMessage,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: CupertinoColors.destructiveRed,
                         fontSize: 12,
                       ),
@@ -62,7 +64,7 @@ class _CupertinoFormState extends State<CupertinoForm> {
                   ),
                   Center(
                     child: CupertinoButton.filled(
-                        child: Text('Submit'), onPressed: onFormSubmitPressed),
+                        child: const Text('Submit'), onPressed: onFormSubmitPressed),
                   )
                 ],
               ),
@@ -80,7 +82,7 @@ class _CupertinoFormState extends State<CupertinoForm> {
   void onFormSubmitPressed() {
     String value = _textEditingController.text;
     setState(() {
-      emailValidationMessage = Validator<String>()
+      emailValidationMessage = Validator<String>(rules: [])
               .add(RequiredRule())
               .add(EmailRule())
               .validate(value) ??

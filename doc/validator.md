@@ -20,7 +20,7 @@ There are two ways to run the validator.
 The `Validator` instance itself can be passed to a `FormField` Widget if you want to add validation.
 
 ```dart
-TextFormField(validator: Validator<String>())
+TextFormField(validator: Validator<String>(rules: []))
 ```
 
 
@@ -44,7 +44,7 @@ For example, Flutter does not have any Cupertino FormField Widgets. For such cas
   void onFormSubmitPressed() {
     String value = _textEditingController.text;
     setState(() {
-      emailValidationMessage = Validator<String>().validate(value) ?? '';
+      emailValidationMessage = Validator<String>(rules: []).validate(value) ?? '';
       });
   }
   
