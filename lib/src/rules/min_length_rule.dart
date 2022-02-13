@@ -10,7 +10,11 @@ class MinLengthRule<T extends dynamic> extends Rule<T> {
 
   @override
   String? onValidate(String entityName, T? value) {
-    if (value!.length < minLength) {
+    if (value == null) {
+      return null;
+    }
+
+    if (value.length < minLength) {
       return ':entity length should be more than :minLength';
     }
     return null;

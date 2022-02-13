@@ -10,9 +10,14 @@ class MaxLengthRule<T extends dynamic> extends Rule<T> {
 
   @override
   String? onValidate(String entityName, T? value) {
-    if (value!.length <= maxLength) {
+    if (value == null) {
       return null;
     }
+
+    if (value.length <= maxLength) {
+      return null;
+    }
+
     return validationMessage ?? ':entity length should be less than :maxLength';
   }
 

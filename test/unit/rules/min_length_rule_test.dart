@@ -8,6 +8,7 @@ void main() {
     var minLength = 5;
     var validString = '12345';
     var invalidString = '12';
+    String? nullString;
 
     var rule = MinLengthRule<String>(minLength);
     rule.transformMessage = StringUtils.replaceWithValues;
@@ -21,6 +22,11 @@ void main() {
       var validationError = rule.validate(entityName, invalidString);
       expect(
           validationError, '$entityName length should be more than $minLength');
+    });
+
+    test('null_string_length_test', () {
+      var validationError = rule.validate(entityName, nullString);
+      expect(validationError, null);
     });
   });
   group('List Min Length Rule Test', () {
