@@ -20,8 +20,8 @@ void main() {
 
     test('invalid_max_length_test', () {
       var validationError = rule.validate(entityName, invalidString);
-      expect(validationError,
-          '$entityName length should be less than $maxLength');
+      expect(
+          validationError, '$entityName length should be less than $maxLength');
     });
 
     test('null_string_length_test', () {
@@ -46,8 +46,8 @@ void main() {
 
     test('invalid_max_length_test', () {
       var validationError = rule.validate(entityName, invalidString);
-      expect(validationError,
-          '$entityName length should be less than $maxLength');
+      expect(
+          validationError, '$entityName length should be less than $maxLength');
     });
   });
 
@@ -67,8 +67,8 @@ void main() {
 
     test('invalid_max_length_test', () {
       var validationError = rule.validate(entityName, invalidString);
-      expect(validationError,
-          '$entityName length should be less than $maxLength');
+      expect(
+          validationError, '$entityName length should be less than $maxLength');
     });
   });
 
@@ -88,8 +88,8 @@ void main() {
 
     test('invalid_max_length_test', () {
       var validationError = rule.validate(entityName, invalidString);
-      expect(validationError,
-          '$entityName length should be less than $maxLength');
+      expect(
+          validationError, '$entityName length should be less than $maxLength');
     });
   });
 

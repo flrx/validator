@@ -5,7 +5,7 @@ import '../../mocks/mock_validator_rule.dart';
 
 void main() {
   var mockRule = MockRule();
-  var validator = Validator<String  >(rules: []);
+  var validator = Validator<String>(rules: []);
 
   setUp(() {
     validator = Validator<String>(rules: []);

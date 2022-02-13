@@ -5,8 +5,7 @@ void main() {
   group('routes replaceWithValues function test', () {
     test('no_param_route_test', () {
       var route = '/provider';
-      var paramRoute =
-          StringUtils.replaceWithValues(route, <String, String>{});
+      var paramRoute = StringUtils.replaceWithValues(route, <String, String>{});
       var expectedRoute = '/provider';
       expect(paramRoute, expectedRoute);
     });

@@ -3,7 +3,7 @@ container:
 
 style_task:
   test_style_script:
-    - dartfmt --set-exit-if-changed lib
+    - dart format --set-exit-if-changed lib
 
 test_task:
   env:
