@@ -31,6 +31,7 @@ abstract class Rule<T> {
   ///
   /// Override it on the child class when necessary.
   @visibleForOverriding
+  @visibleForTesting
   String? validate(String entityName, T? value) {
     var validationMessageFromRule = onValidate(entityName, value);
     if (validationMessageFromRule == null) {
