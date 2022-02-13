@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:multiselect_formfield/multiselect_formfield.dart';
 
 class MaterialForm extends StatefulWidget {
-  MaterialForm({Key key}) : super(key: key);
+  MaterialForm({Key? key}) : super(key: key);
 
   @override
   _MaterialFormState createState() => _MaterialFormState();
@@ -11,7 +11,7 @@ class MaterialForm extends StatefulWidget {
 
 class _MaterialFormState extends State<MaterialForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  List<String> _myActivities;
+  List<String> _myActivities = [];
 
   @override
   Widget build(BuildContext context) {
@@ -25,24 +25,26 @@ class _MaterialFormState extends State<MaterialForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               TextFormField(
-                validator: Validator<String>()
-                    .add(RequiredRule<String>())
-                    .add(EmailRule()),
+                validator: Validator<String>(rules: [
+                  RequiredRule<String>(),
+                  EmailRule(),
+                ]),
                 decoration: InputDecoration(hintText: 'Email'),
               ),
               TextFormField(
-                validator: Validator<String>()
-                    .add(RequiredRule<String>())
-                    .add(EachRule<String>(
-                      <Rule<String>>[
-                        MinLengthRule(8),
-                        RegexRule(
-                          r'(?=.*[a-z])',
-                          validationMessage:
-                              ":entity should contain one lowercase character",
-                        ),
-                      ],
-                    )),
+                validator: Validator<String>(rules: [
+                  RequiredRule<String>(),
+                  EachRule<String>(
+                    <Rule<String>>[
+                      MinLengthRule(8),
+                      RegexRule(
+                        r'(?=.*[a-z])',
+                        validationMessage:
+                            ":entity should contain one lowercase character",
+                      ),
+                    ],
+                  )
+                ]),
                 decoration: InputDecoration(hintText: 'Password'),
                 obscureText: true,
               ),
@@ -65,7 +67,7 @@ class _MaterialFormState extends State<MaterialForm> {
 
   Widget buildStringDropdown() {
     return DropdownButtonFormField<String>(
-      validator: Validator<String>().add(RequiredRule<String>()),
+      validator: Validator<String>(rules: [RequiredRule<String>()]),
       value: "",
       items: const <DropdownMenuItem<String>>[
         DropdownMenuItem<String>(
@@ -77,13 +79,13 @@ class _MaterialFormState extends State<MaterialForm> {
           value: "Item 1",
         )
       ],
-      onChanged: (String value) {},
+      onChanged: (String? value) {},
     );
   }
 
   Widget buildIntDropdown() {
     return DropdownButtonFormField<int>(
-      validator: Validator<int>().add(RequiredRule<int>()),
+      validator: Validator<int>(rules: [RequiredRule<int>()]),
       value: 1,
       items: const <DropdownMenuItem<int>>[
         DropdownMenuItem<int>(
@@ -99,12 +101,12 @@ class _MaterialFormState extends State<MaterialForm> {
           value: 2,
         )
       ],
-      onChanged: (int value) {},
+      onChanged: (int? value) {},
     );
   }
 
   void onFormSubmitPressed() {
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState?.validate() == true) {
       // Process data.
     }
   }
@@ -112,7 +114,7 @@ class _MaterialFormState extends State<MaterialForm> {
   Widget buildMultiSelectField() {
     return MultiSelectFormField(
       autovalidate: false,
-      titleText: 'My workouts',
+      title: Text('My workouts'),
       validator: Validator<dynamic>(rules: <Rule<List<String>>>[
         RequiredRule<List<String>>(),
       ]),
@@ -151,7 +153,7 @@ class _MaterialFormState extends State<MaterialForm> {
       okButtonLabel: 'OK',
       cancelButtonLabel: 'CANCEL',
       // required: true,
-      hintText: 'Please choose one or more',
+      hintWidget: Text('Please choose one or more'),
       initialValue: _myActivities,
       onSaved: (value) {
         setState(() {

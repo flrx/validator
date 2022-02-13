@@ -13,7 +13,7 @@ abstract class Rule<T> {
   ///
   /// This can be passed to the default constructor if the user wants to
   /// show a custom validation message over the default ones for the rule.
-  final String validationMessage;
+  final String? validationMessage;
 
   /// A function used for transforming the message that comes back from the rules.
   ///
@@ -22,7 +22,7 @@ abstract class Rule<T> {
   ///
   /// If passed to [Rule], it overrides the default [Validator.transformMessage]
   /// function.
-  MessageTransformer transformMessage;
+  MessageTransformer? transformMessage;
 
   /// Returns validation message if validation fails.
   ///
@@ -31,12 +31,13 @@ abstract class Rule<T> {
   ///
   /// Override it on the child class when necessary.
   @visibleForOverriding
-  String validate(String entityName, T value) {
+  @visibleForTesting
+  String? validate(String entityName, T? value) {
     var validationMessageFromRule = onValidate(entityName, value);
     if (validationMessageFromRule == null) {
       return null;
     }
-    return transformMessage(validationMessage ?? validationMessageFromRule,
+    return transformMessage!(validationMessage ?? validationMessageFromRule,
         _getResultantMap(entityName, value));
   }
 
@@ -44,14 +45,14 @@ abstract class Rule<T> {
   ///
   /// Override it in the child class to define the validation logic for it.
   @protected
-  String onValidate(String entityName, T value);
+  String? onValidate(String entityName, T? value);
 
   /// Returns a Map of values that are needed to be replaced in
   /// [validationMessage].
   ///
   /// This function is takes the default entity and value along with
   /// the key, value pairs provided by the [getRuleSpecificParams()] function.
-  Map<String, String> _getResultantMap(String entityName, T value) {
+  Map<String, String> _getResultantMap(String entityName, T? value) {
     return <String, String>{
       'entity': entityName,
       'value': value.toString(),

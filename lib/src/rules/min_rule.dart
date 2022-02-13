@@ -8,11 +8,11 @@ class MinRule<T> extends NumberRule<T> {
 
   MinRule(
     this.minValue, {
-    String validationMessage,
+    String? validationMessage,
   }) : super(validationMessage: validationMessage);
 
   @override
-  String onValidate(String entityName, T value) {
+  String? onValidate(String entityName, T? value) {
     var message = super.onValidate(entityName, value);
     if (message != null) {
       return message;

@@ -80,7 +80,7 @@ class _CupertinoFormState extends State<CupertinoForm> {
   void onFormSubmitPressed() {
     String value = _textEditingController.text;
     setState(() {
-      emailValidationMessage = Validator<String>()
+      emailValidationMessage = Validator<String>(rules: [])
               .add(RequiredRule())
               .add(EmailRule())
               .validate(value) ??

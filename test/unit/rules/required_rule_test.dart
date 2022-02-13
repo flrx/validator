@@ -62,7 +62,7 @@ void main() {
   group('Object Required Rule Test', () {
     var entityName = 'required';
     var validObject = Object();
-    Object invalidObject;
+    Object? invalidObject;
 
     var rule = RequiredRule<Object>();
     rule.transformMessage = StringUtils.replaceWithValues;

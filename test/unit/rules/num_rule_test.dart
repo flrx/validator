@@ -18,8 +18,7 @@ void main() {
 
     test('invalid_number_test', () {
       var validationError = rule.validate(entityName, invalidString);
-      expect(
-          validationError, '$entityName is not a number');
+      expect(validationError, '$entityName is not a number');
     });
   });
 }
