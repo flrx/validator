@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:multiselect_formfield/multiselect_formfield.dart';
 
 class MaterialForm extends StatefulWidget {
-  MaterialForm({Key? key}) : super(key: key);
+  const MaterialForm({Key? key}) : super(key: key);
 
   @override
   _MaterialFormState createState() => _MaterialFormState();
@@ -16,7 +16,7 @@ class _MaterialFormState extends State<MaterialForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Material Form Validator')),
+      appBar: AppBar(title: const Text('Material Form Validator')),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Form(
@@ -29,7 +29,7 @@ class _MaterialFormState extends State<MaterialForm> {
                   RequiredRule<String>(),
                   EmailRule(),
                 ]),
-                decoration: InputDecoration(hintText: 'Email'),
+                decoration: const InputDecoration(hintText: 'Email'),
               ),
               TextFormField(
                 validator: Validator<String>(rules: [
@@ -45,7 +45,7 @@ class _MaterialFormState extends State<MaterialForm> {
                     ],
                   )
                 ]),
-                decoration: InputDecoration(hintText: 'Password'),
+                decoration: const InputDecoration(hintText: 'Password'),
                 obscureText: true,
               ),
               buildStringDropdown(),
@@ -53,9 +53,9 @@ class _MaterialFormState extends State<MaterialForm> {
               buildMultiSelectField(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
-                child: RaisedButton(
+                child: ElevatedButton(
                   onPressed: onFormSubmitPressed,
-                  child: Text('Submit'),
+                  child: const Text('Submit'),
                 ),
               ),
             ],
@@ -114,36 +114,36 @@ class _MaterialFormState extends State<MaterialForm> {
   Widget buildMultiSelectField() {
     return MultiSelectFormField(
       autovalidate: false,
-      title: Text('My workouts'),
+      title: const Text('My workouts'),
       validator: Validator<dynamic>(rules: <Rule<List<String>>>[
         RequiredRule<List<String>>(),
       ]),
       dataSource: const <Map<String, String>>[
-        const <String, String>{
+        <String, String>{
           "display": "Running",
           "value": "Running",
         },
-        const <String, String>{
+        <String, String>{
           "display": "Climbing",
           "value": "Climbing",
         },
-        const <String, String>{
+        <String, String>{
           "display": "Walking",
           "value": "Walking",
         },
-        const <String, String>{
+        <String, String>{
           "display": "Swimming",
           "value": "Swimming",
         },
-        const <String, String>{
+        <String, String>{
           "display": "Soccer Practice",
           "value": "Soccer Practice",
         },
-        const <String, String>{
+        <String, String>{
           "display": "Baseball Practice",
           "value": "Baseball Practice",
         },
-        const <String, String>{
+        <String, String>{
           "display": "Football Practice",
           "value": "Football Practice",
         },
@@ -153,7 +153,7 @@ class _MaterialFormState extends State<MaterialForm> {
       okButtonLabel: 'OK',
       cancelButtonLabel: 'CANCEL',
       // required: true,
-      hintWidget: Text('Please choose one or more'),
+      hintWidget: const Text('Please choose one or more'),
       initialValue: _myActivities,
       onSaved: (value) {
         setState(() {

@@ -59,8 +59,8 @@ void main() {
   });
 
   group('validator_transform_message_tests', () {
-    var upperCaseTransformer =
-        (String message, Map<String, String> _) => message.toUpperCase();
+    String upperCaseTransformer(String message, Map<String, String> _) =>
+        message.toUpperCase();
 
     test('test_validator_with_message_transformer', () {
       var customValidator =

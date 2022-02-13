@@ -1,5 +1,4 @@
 import 'package:flrx_validator/flrx_validator.dart';
-import 'package:flrx_validator/src/validator.dart';
 
 class MockValidator<T> extends Validator<T> {
   MockValidator() : super(rules: []);

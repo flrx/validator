@@ -1,4 +1,4 @@
-## [v0.6.0-nullsafety]
+## [v0.6.0]
 ### Changed
 Migrated to Null Safety
 
@@ -58,7 +58,7 @@ Update Docs Dependencies
 
 Initial Release
 
-[v0.6.0-nullsafety]: https://github.com/flrx/validator/compare/v0.6.0-nullsafety...v0.5.0
+[v0.6.0]: https://github.com/flrx/validator/compare/v0.6.0...v0.5.0
 [v0.5.0]: https://github.com/flrx/validator/compare/v0.5.0...v0.4.0+2
 [v0.4.0+2]: https://github.com/flrx/validator/compare/v0.4.0+2...v0.3.0
 [v0.3.0]: https://github.com/flrx/validator/compare/v0.3.0...v0.2.0

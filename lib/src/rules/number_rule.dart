@@ -8,7 +8,7 @@ class NumberRule<T> extends Rule<T> {
   @override
   String? onValidate(String entityName, T? value) {
     num? numValue;
-    if (!(value is num)) {
+    if (value is! num) {
       numValue = double.tryParse(value.toString());
     }
     if (numValue == null) {
